@@ -1068,6 +1068,10 @@ return [
     'Restaurant deleted!'=>'Restaurant deleted!',
     'Food deleted!'=>'تم حذف المادة!',
     'reset'=>'Reset',
+
+
+ff
+
     'Unauthorized'=>'Unauthorized.',
     'Export Restaurants'=>'Export Restaurants',
     'star'=>'star',
