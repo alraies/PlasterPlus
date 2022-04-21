@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Noto Kufi Arabic';
+    src: url('NotoKufiArabic-Regular.woff2') format('woff2'),
+        url('NotoKufiArabic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
