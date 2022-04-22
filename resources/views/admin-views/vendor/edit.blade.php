@@ -156,7 +156,7 @@
                     </div>
                     <center>
                         <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
-                        onerror="this.src='{{asset('public/assets/admin/img/900x400/img1.jpg')}}'"
+                        onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'"
                         src="{{asset('storage/app/public/restaurant/cover/'.$restaurant->cover_photo)}}" alt="Product thumbnail"/>
                     </center>
 

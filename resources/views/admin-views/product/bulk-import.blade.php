@@ -36,7 +36,7 @@
                     <p> 5. You can get restaurant id from their list, please input the right ids.</p>
 
                     <p> 6. You can upload your product images in product folder from gallery, and copy image`s path.</p>
-                    
+
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                     <div class="card mt-2 rest-part">
                         <div class="card-header">
                             <h4>Import Foods File</h4>
-                            <a href="{{asset('public/assets/foods_bulk_format.xlsx')}}" download=""
+                            <a href="{{asset('assets/foods_bulk_format.xlsx')}}" download=""
                                class="btn btn-secondary">Download Format</a>
                         </div>
                         <div class="card-body">

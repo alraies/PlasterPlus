@@ -46,7 +46,7 @@
                         onclick="request_alert('{{route('admin.delivery-man.application',[$dm['id'],'approved'])}}','{{__('messages.you_want_to_approve_this_application')}}')"
                             href="javascript:">{{__('messages.approve')}}</a>
                         @if($dm->application_status !='denied')
-                        <a class="btn btn-danger text-capitalize font-weight-bold" 
+                        <a class="btn btn-danger text-capitalize font-weight-bold"
                         onclick="request_alert('{{route('admin.delivery-man.application',[$dm['id'],'denied'])}}','{{__('messages.you_want_to_deny_this_application')}}')"
                             href="javascript:">{{__('messages.deny')}}</a>
                         @endif
@@ -63,22 +63,22 @@
             <div class="card-header">
                 <h4 class="page-header-title">
                     {{$dm['f_name'].' '.$dm['l_name']}}
-                    
-                    (@if($dm->zone) 
-                        {{$dm->zone->name}} 
-                    @else {{__('messages.zone').' '.__('messages.deleted')}} 
-                    @endif ) 
+
+                    (@if($dm->zone)
+                        {{$dm->zone->name}}
+                    @else {{__('messages.zone').' '.__('messages.deleted')}}
+                    @endif )
                     @if($dm->application_status=='approved')
-                        @if($dm['status']) 
-                            @if($dm['active']) 
-                                <label class="badge badge-soft-primary">{{__('messages.online')}}</label> 
-                            @else 
-                                <label class="badge badge-soft-danger">{{__('messages.offline')}}</label> 
-                            @endif  
-                        @else 
-                        <span class="badge badge-danger">{{__('messages.suspended')}}</span> 
+                        @if($dm['status'])
+                            @if($dm['active'])
+                                <label class="badge badge-soft-primary">{{__('messages.online')}}</label>
+                            @else
+                                <label class="badge badge-soft-danger">{{__('messages.offline')}}</label>
+                            @endif
+                        @else
+                        <span class="badge badge-danger">{{__('messages.suspended')}}</span>
                         @endif
-                    
+
                     @else
                     <label class="badge badge-soft-{{$dm->application_status=='pending'?'info':'danger'}}">{{__('messages.'.$dm->application_status)}}</label>
                     @endif
@@ -115,7 +115,7 @@
                     <div class="col-md-auto mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                 onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                  src="{{asset('storage/app/public/delivery-man')}}/{{$dm['image']}}"
                                  alt="Image Description">
                             <div class="d-block">
@@ -208,7 +208,7 @@
             <!-- End Body -->
         </div>
         <!-- End Card -->
-        
+
         <div class="row my-3">
             <!-- Earnings (Monthly) Card Example -->
             <div class="for-card col-sm-4 col-6 mb-2">
@@ -301,7 +301,7 @@
                                    href="{{route('admin.customer.view',[$review['user_id']])}}">
                                     <div class="avatar avatar-circle">
                                         <img class="avatar-img" width="75" height="75"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                              src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
                                              alt="Image Description">
                                     </div>
@@ -328,7 +328,7 @@
                             </td>
                             <td>
                                 @foreach(json_decode($review['attachment'],true) as $attachment)
-                                    <img width="100" onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" src="{{asset('storage/app/public')}}/{{$attachment}}">
+                                    <img width="100" onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" src="{{asset('storage/app/public')}}/{{$attachment}}">
                                 @endforeach
                             </td>
                             <td>

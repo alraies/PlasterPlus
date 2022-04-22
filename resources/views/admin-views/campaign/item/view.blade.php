@@ -32,7 +32,7 @@
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
                                  src="{{asset('storage/app/public/campaign')}}/{{$campaign['image']}}"
-                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                 onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="Image Description">
                             {{--<!-- <div class="d-block">
                                 <h4 class="display-2 text-dark mb-0">{{count($campaign->rating)>0?number_format($campaign->rating[0]->average, 2, '.', ' '):0}}</h4>
@@ -140,7 +140,7 @@
                         <a href="{{route('admin.vendor.view', $campaign->restaurant_id)}}" title="{{$campaign->restaurant['name']}}">
                             <img
                                 class="avatar-img avatar-circle" style="width: 75px;margin:auto;"
-                                onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                 src="{{asset('storage/app/public/restaurant/'.$campaign->restaurant->logo)}}"
                                 alt="Image Description">
                             <label class="input-label">{{$campaign->restaurant['name']}}</label>
@@ -163,7 +163,7 @@
                                         <small class="text-dark">{{__('messages.discount')}} :
                                             {{\App\CentralLogics\Helpers::format_currency(\App\CentralLogics\Helpers::discount_calculate($campaign,$campaign['price']))}}
                                         </small class="text-dark"><br>
-                                        
+
                                         <small class="card-subtitle border-bottom mt-2"> {{__('messages.variations')}} </small><br>
                                         @foreach(json_decode($campaign['variations'],true) as $variation)
                                             <small class="text-capitalize">
@@ -180,13 +180,13 @@
                                     <div class="col-8 pt-2 border-left">
                                         <h4>{{__('messages.short')}} {{__('messages.description')}} : </h4>
                                         <p>{{$campaign['description']}}</p>
-                                    </div> 
+                                    </div>
                                 </div>
-                                
+
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- End Body -->

@@ -36,7 +36,7 @@
                     <p> 5. You can get category id from their list, please input the right ids.</p>
 
                     <p> 6. Don't forget to fill all the fields </p>
-                    
+
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                     <div class="card mt-2 rest-part">
                         <div class="card-header">
                             <h4>{{__('messages.Import Food`s File')}}</h4>
-                            <a href="{{asset('public/assets/restaurant_panel/foods_bulk_format.xlsx')}}" download=""
+                            <a href="{{asset('assets/restaurant_panel/foods_bulk_format.xlsx')}}" download=""
                                class="btn btn-secondary">{{__('messages.Download Format')}}</a>
                         </div>
                         <div class="card-body">

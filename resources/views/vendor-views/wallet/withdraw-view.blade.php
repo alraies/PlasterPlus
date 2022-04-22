@@ -2,8 +2,8 @@
 @section('title','Withdraw information View')
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="{{asset('public/assets/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{asset('assets/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -18,13 +18,13 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex row align-items-center justify-content-between mb-2">
-        <div class="col-md-6"> 
+        <div class="col-md-6">
              <h4 class=" mb-0 text-black-50">{{__('messages.seller')}} {{__('messages.Withdraw')}} {{__('messages.information')}}</h4>
             </div>
-     
+
     </div>
     <div class="row mt-3">
-        
+
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
@@ -32,14 +32,14 @@
                 </div>
                 <div class="card-body">
                     <div class="col-md-8 mt-2">
-                        
+
                         <h4>{{__('messages.bank_name')}}: {{$seller->seller->bank_name ? $seller->seller->bank_name : 'No Data found'}}</h4>
                         <h6>{{__('messages.Branch')}}  : {{$seller->seller->branch ? $seller->seller->branch : 'No Data found'}}</h6>
                         <h6>{{__('messages.holder_name')}} : {{$seller->seller->holder_name ? $seller->seller->holder_name : 'No Data found'}}</h6>
                         <h6>{{__('messages.account_no')}}  : {{$seller->seller->account_no ? $seller->seller->account_no : 'No Data found'}}</h6>
-                      
 
-                       
+
+
                     </div>
                 </div>
             </div>
@@ -73,10 +73,10 @@
                 </div>
             </div>
         </div>
-     
+
         <div class="col-md-6">
             {{-- {{ $seller }} --}}
-           
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="h3 mb-0  ">{{__('messages.Withdraw')}} {{__('messages.information')}} </h3>
@@ -86,7 +86,7 @@
                     <h5>{{__('messages.request_time')}} : {{$seller->created_at}}</h5>
                     {{-- {{ $seller->id }} --}}
                     @if ($seller->approved== 0)
-         
+
                     <div class="text-center mt-3">
                         <form class="d-inline-block" action="{{route('admin.sellers.withdraw_status')}}" method="POST">
                             @csrf
@@ -103,7 +103,7 @@
                     </div>
                     @else
                       <div class="text-center col-sm-3  mt-3">
-                       
+
                     @if($seller->approved==1)
                         <label class="badge badge-success p-2 rounded-bottom">{{__('messages.Approved')}}</label>
                     @else
@@ -114,23 +114,23 @@
                     @endif
                 </div>
             </div>
-          
-       
-       
+
+
+
         </div>
-    
-     
+
+
 
     </div>
- 
+
 </div>
 
 @endsection
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{asset('public/assets')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('public/assets')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('assets')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{asset('assets')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <script>
         // Call the dataTables jQuery plugin

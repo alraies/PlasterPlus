@@ -13,11 +13,11 @@
                 @php($restaurant_logo=\App\Models\BusinessSetting::where(['key'=>'logo'])->first()->value)
                 <a class="navbar-brand" href="{{route('admin.dashboard')}}" aria-label="Front">
                     <img class="navbar-brand-logo" style="max-height: 55px; border-radius: 8px;max-width: 100%!important;"
-                         onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                          src="{{asset('storage/app/public/business/'.$restaurant_logo)}}"
                          alt="Logo">
                     <img class="navbar-brand-logo-mini" style="max-height: 55px; border-radius: 8px;max-width: 100%!important;"
-                         onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                          src="{{asset('storage/app/public/business/'.$restaurant_logo)}}" alt="Logo">
                 </a>
                 <!-- End Logo -->
@@ -687,7 +687,7 @@
 
                     <!-- Business Settings -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('settings'))
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <small class="nav-subtitle"
                                    title="{{__('messages.business')}} {{__('messages.settings')}}">{{__('messages.business')}} {{__('messages.settings')}}</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
@@ -720,14 +720,14 @@
                                 <span
                                     class="text-truncate">{{__('messages.mail')}} {{__('messages.config')}}</span>
                             </a>
-                        </li>
-                        <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/sms-module')?'active':''}}">
+                        </li> -->
+                        <!-- <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/sms-module')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.business-settings.sms-module')}}"
                                title="{{__('messages.sms')}} {{__('messages.module')}}">
                                 <span class="tio-message nav-icon"></span>
                                 <span class="text-truncate">{{__('messages.sms')}} {{__('messages.module')}}</span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/fcm-index')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.business-settings.fcm-index')}}"

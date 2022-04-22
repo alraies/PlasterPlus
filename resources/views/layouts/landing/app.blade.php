@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css">
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="{{asset('public/assets/landing/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/assets/landing/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/landing/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
 
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="{{asset('public/assets/landing')}}/css/normalize.css">
+    <link rel="stylesheet" href="{{asset('assets/landing')}}/css/normalize.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('public/assets/landing/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/landing/css/main.css')}}">
     <style>
         a:hover {
             color: #000000;
@@ -62,7 +62,7 @@
 <body>
     @php($landing_page_text = \App\Models\BusinessSetting::where(['key'=>'landing_page_text'])->first())
     @php($landing_page_text = isset($landing_page_text->value)?json_decode($landing_page_text->value, true):null)
-    
+
     @php($landing_page_links = \App\Models\BusinessSetting::where(['key'=>'landing_page_links'])->first())
     @php($landing_page_links = isset($landing_page_links->value)?json_decode($landing_page_links->value, true):null)
 <header>
@@ -71,7 +71,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
-                    <img  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                    <img  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                           src="{{asset('storage/app/public/business/'.$logo)}}"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
@@ -150,7 +150,7 @@
                                 <a class="" href="#">
                                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
                                     <img class="rounded float-left"
-                                         onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                          src="{{asset('storage/app/public/business/'.$logo)}}"
                                          style="max-width: 200px;max-height: 75px">
                                 </a>

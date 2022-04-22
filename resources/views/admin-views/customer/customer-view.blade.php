@@ -31,7 +31,7 @@
                         </i> {{__('messages.joined_at')}} : {{date('d M Y '.config('timeformat'),strtotime($customer['created_at']))}}
                         </span>
                     </div>
-                    
+
                 </div>
 
                 <div class="col-sm-auto">
@@ -132,7 +132,7 @@
                                 <div class="avatar avatar-circle mr-3">
                                     <img
                                         class="avatar-img"
-                                        onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                        onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                         src="{{asset('storage/app/public/profile/'.$customer->image)}}"
                                         alt="Image Description">
                                 </div>

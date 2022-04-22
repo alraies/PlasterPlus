@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -21,7 +21,7 @@
     <div class="page-header">
 
         <h1 class="page-header-title text-break">{{$restaurant->name}}</h1>
-        
+
         <!-- Nav Scroller -->
         <div class="js-nav-scroller hs-nav-scroller-horizontal">
             <span class="hs-nav-scroller-arrow-prev" style="display: none;">
@@ -99,13 +99,13 @@
                             @else
                             <div class="form-group">
                                 <label class="d-flex justify-content-center rounded px-4 form-control" for="restaurant_status">
-                                    <span class="card-subtitle">No discount</span> 
+                                    <span class="card-subtitle">No discount</span>
                                 </label>
                             </div>
                             @endif
-                            
 
-                            
+
+
                         </div>
                     </div>
                 </div>
@@ -125,12 +125,12 @@
       </div>
       <div class="modal-body">
         <form action="{{route('admin.vendor.discount',[$restaurant['id']])}}" method="post" id="discount-form">
-            @csrf 
+            @csrf
             <div class="row">
                 <div class="col-md-6 col-6">
                     <div class="form-group">
                         <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.date')}}</label>
-                        <input type="date" id="date_from" class="form-control" required name="start_date" value="{{$restaurant->discount?date('Y-m-d',strtotime($restaurant->discount->start_date)):''}}"> 
+                        <input type="date" id="date_from" class="form-control" required name="start_date" value="{{$restaurant->discount?date('Y-m-d',strtotime($restaurant->discount->start_date)):''}}">
                     </div>
                 </div>
                 <div class="col-md-6 col-6">
@@ -161,7 +161,7 @@
                 <div class="col-md-4 col-6">
                     <div class="form-group">
                         <label class="input-label" for="title">{{__('messages.min')}} {{__('messages.purchase')}} ({{\App\CentralLogics\Helpers::currency_symbol()}})</label>
-                        <input type="number" name="min_purchase" step="0.01" min="0" max="100000" class="form-control" placeholder="100" value="{{$restaurant->discount?$restaurant->discount->min_purchase:'0'}}"> 
+                        <input type="number" name="min_purchase" step="0.01" min="0" max="100000" class="form-control" placeholder="100" value="{{$restaurant->discount?$restaurant->discount->min_purchase:'0'}}">
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
@@ -197,7 +197,7 @@
             });
             $('#date_from').attr('min',(new Date()).toISOString().split('T')[0]);
             $('#date_to').attr('min',(new Date()).toISOString().split('T')[0]);
-            
+
             $("#date_from").on("change", function () {
                 $('#date_to').attr('min',$(this).val());
             });

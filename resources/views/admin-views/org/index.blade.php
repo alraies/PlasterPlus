@@ -73,7 +73,7 @@
                                 @if(isset($org))
                                 src="{{asset('storage/app/public/org')}}/{{$org['image']}}"
                                 @else
-                                src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}"
+                                src="{{asset('assets/admin/img/900x400/img1.jpg')}}"
                                 @endif
                                 alt="photo"/>
                         </center>

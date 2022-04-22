@@ -3,7 +3,7 @@
 @section('title',__('messages.restaurant_registration'))
 
 @push('css_or_js')
-<link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
+<link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
 <style>
     #map{
         height: 100%;
@@ -70,10 +70,10 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12" style="margin-top: auto;margin-bottom: auto;">
-                            <div class="form-group" style="margin-bottom:0%;">                       
+                            <div class="form-group" style="margin-bottom:0%;">
                                 <center>
                                     <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                        src="{{asset('public/assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
+                                        src="{{asset('assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
                                 </center>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             <div class="form-group">
                                 <label class="input-label" for="longitude">{{__('messages.longitude')}}<span
                                         class="input-label-secondary" title="{{__('messages.restaurant_lat_lng_warning')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{__('messages.restaurant_lat_lng_warning')}}"></span></label>
-                                <input type="text" 
+                                <input type="text"
                                        name="longitude" class="form-control"
                                        placeholder="Ex : 103.344322" id="longitude" value="{{old('longitude')}}" required readonly>
                             </div>
@@ -126,14 +126,14 @@
                                         accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     <label class="custom-file-label" for="customFileUpload">{{__('messages.choose')}} {{__('messages.file')}}</label>
                                 </div>
-                            </div> 
+                            </div>
                             <center>
                                 <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
-                                src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}" alt="Product thumbnail"/>
+                                src="{{asset('assets/admin/img/900x400/img1.jpg')}}" alt="Product thumbnail"/>
                             </center>
                         </div>
                     </div>
-                      
+
                     <br>
                     <small class="nav-subtitle text-secondary border-bottom">{{__('messages.owner')}} {{__('messages.info')}}</small>
                     <br>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     <br>
-                    
+
                     <small class="nav-subtitle text-secondary border-bottom text-capitalize">{{__('messages.login')}} {{__('messages.info')}}</small>
                     <br>
                     <div class="row">
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">{{__('messages.submit')}}</button>
                 </form>
             </div>
@@ -196,7 +196,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/toastr.js"></script>
+    <script src="{{asset('assets/admin')}}/js/toastr.js"></script>
     {!! Toastr::message() !!}
 
     @if ($errors->any())
@@ -242,7 +242,7 @@
         });
     </script>
 
-    <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('assets/admin/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             $("#coba").spartanMultiImagePicker({
@@ -252,7 +252,7 @@
                 groupClassName: 'col-lg-2 col-md-4 col-sm-4 col-6',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/admin/img/400x400/img2.jpg')}}',
+                    image: '{{asset('assets/admin/img/400x400/img2.jpg')}}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",
@@ -282,7 +282,7 @@
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{\App\Models\BusinessSetting::where('key', 'map_api_key')->first()->value}}&v=3.45.8"></script>
-    <script> 
+    <script>
         @php($default_location=\App\Models\BusinessSetting::where('key','default_location')->first())
         @php($default_location=$default_location->value?json_decode($default_location->value, true):0)
         let myLatlng = { lat: {{$default_location?$default_location['lat']:'23.757989'}}, lng: {{$default_location?$default_location['lng']:'90.360587'}} };
@@ -296,7 +296,7 @@
                 position: myLatlng,
             });
         var bounds = new google.maps.LatLngBounds();
-        function initMap() {           
+        function initMap() {
             // Create the initial InfoWindow.
             infoWindow.open(map);
              //get current location block
@@ -373,7 +373,7 @@
                         document.getElementById('latitude').value = coordinates['lat'];
                         document.getElementById('longitude').value = coordinates['lng'];
                         infoWindow.open(map);
-                    });    
+                    });
                 },
             });
         });

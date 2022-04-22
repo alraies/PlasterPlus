@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
     <style>
         .flex-item{
             padding: 10px;
@@ -48,7 +48,7 @@
                 </a>
                 @else
                     @if(!isset($restaurant->vendor->status))
-                    <a class="btn btn-danger text-capitalize font-weight-bold float-right" 
+                    <a class="btn btn-danger text-capitalize font-weight-bold float-right"
                     onclick="request_alert('{{route('admin.vendor.application',[$restaurant['id'],0])}}','{{__('messages.you_want_to_deny_this_application')}}')"
                         href="javascript:">{{__('messages.deny')}}</a>
                     @endif
@@ -192,7 +192,7 @@
                     </div>
                 </div>
             </div>
- 
+
         </div>
     </div>
     <div class="card my-2">
@@ -201,10 +201,10 @@
                 <div class="col-md-auto mb-3 mb-md-0">
                     <div class="d-flex align-items-center">
                         <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                        onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                        onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                         src="{{asset('storage/app/public/restaurant')}}/{{$restaurant->logo}}"
                                 alt="{{$restaurant->name}} Logo">
-                        
+
                     </div>
                 </div>
 
@@ -273,7 +273,7 @@
 
                         <!-- Review Ratings -->
                         <li class="d-flex align-items-center font-size-sm">
-                        
+
                             <span class="mr-3">1 star</span>
                             <div class="progress flex-grow-1">
                                 <div class="progress-bar" role="progressbar"
@@ -326,7 +326,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="row pt-4">
@@ -338,11 +338,11 @@
                         <div class="card-body ">
                             <div class="text-center">
                                 <div class="avatar avatar-xxl avatar-circle avatar-border-lg">
-                                    <img class="avatar-img" onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                    <img class="avatar-img" onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                 src="{{asset('storage/app/public/vendor')}}/{{$restaurant->vendor->image}}" alt="Image Description">
                                 </div>
-                            
-                            
+
+
                                 <ul class="list-unstyled list-unstyled-py-3 text-dark mb-3">
                                     <li>
                                         <i class="tio-user-outlined nav-icon"></i>
@@ -357,7 +357,7 @@
                                     {{$restaurant->vendor->phone}}
                                     </li>
                                 </ul>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -392,7 +392,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-12">
                            <center>
-                               <img style="max-width: 50%" src="{{asset('public/assets/landing/image/contact.png')}}">
+                               <img style="max-width: 50%" src="{{asset('assets/landing/image/contact.png')}}">
                                <h6 class="mt-4">
                                    Phone : {{\App\CentralLogics\Helpers::get_settings('phone')}},
                                    Email : {{\App\CentralLogics\Helpers::get_settings('email_address')}}

@@ -17,7 +17,7 @@
                     <label class="label_1">{{__('messages.sold')}} : {{$item['order_count']}}</label>
                     <img style="width: 100%;height: 120px"
                          src="{{asset('storage/app/public/product')}}/{{$item['image']}}"
-                         onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                          alt="{{$item->name}} image">
                     <div class="text-center mt-2">
                         <span class="" style="font-size: 10px">{{$item['name']}}</span>

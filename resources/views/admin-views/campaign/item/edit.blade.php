@@ -3,7 +3,7 @@
 @section('title','Update campaign')
 
 @push('css_or_js')
-    <link href="{{asset('public/assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -113,7 +113,7 @@
                         <div class="col-md-3 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.date')}}</label>
-                                <input type="date" id="date_from" class="form-control" required="" name="start_date" value="{{$campaign->start_date->format('Y-m-d')}}"> 
+                                <input type="date" id="date_from" class="form-control" required="" name="start_date" value="{{$campaign->start_date->format('Y-m-d')}}">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
@@ -124,7 +124,7 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.time')}}</label>                                    
+                                <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.time')}}</label>
                                 <input type="time" id="start_time" class="form-control" name="start_time" value="{{$campaign->start_time->format('H:i')}}">
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlSelect1">{{__('messages.sub_category')}}<span
                                         class="input-label-secondary" title="{{__('messages.category_required_warning')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{__('messages.category_required_warning')}}"></span></label>
-                                @php($product_category = json_decode($campaign->category_ids))        
+                                @php($product_category = json_decode($campaign->category_ids))
                                 <select name="sub_category_id" id="sub-categories" data-id="{{count($product_category)>=2?$product_category[1]->id:''}}" class="form-control js-select2-custom"
                                         onchange="getRequest('{{url('/')}}/admin/food/get-categories?parent_id='+this.value,'sub-sub-categories')">
 
@@ -286,7 +286,7 @@
                         $('#available_time_starts').attr('max', closeing_time);
                         $('#available_time_starts').val(opening_time);
                         $('#available_time_ends').val(closeing_time);
-                    }                    
+                    }
                 },
             });
         }
@@ -331,7 +331,7 @@
             @endif
         });
     </script>
-    <script src="{{asset('public/assets/admin')}}/js/tags-input.min.js"></script>
+    <script src="{{asset('assets/admin')}}/js/tags-input.min.js"></script>
 
     <script>
         $('#choice_attributes').on('change', function () {
@@ -397,7 +397,7 @@
                 }
             });
 
- 
+
             $('.js-data-example-ajax').select2({
                 ajax: {
                     url: '{{url('/')}}/admin/vendor/get-restaurants',

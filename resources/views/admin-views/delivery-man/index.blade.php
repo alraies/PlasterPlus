@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
- 
+
 
                     <div class="form-group">
                         <label>{{__('messages.deliveryman')}} {{__('messages.image')}}</label><small style="color: red">* ( {{__('messages.ratio')}} 1:1 )</small>
@@ -138,10 +138,10 @@
                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required>
                             <label class="custom-file-label" for="customFileEg1">{{__('messages.choose')}} {{__('messages.file')}}</label>
                         </div>
-                        
+
                         <center class="pt-4">
                             <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                 src="{{asset('public/assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
+                                 src="{{asset('assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
                         </center>
                     </div>
                     <hr>
@@ -191,10 +191,10 @@
         //     $(this).val(phone.getNumber());
         // })
 
-        
+
     </script>
 
-    <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('assets/admin/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             $("#coba").spartanMultiImagePicker({
@@ -204,7 +204,7 @@
                 groupClassName: 'col-lg-2 col-md-4 col-sm-4 col-6',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/admin/img/400x400/img2.jpg')}}',
+                    image: '{{asset('assets/admin/img/400x400/img2.jpg')}}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",

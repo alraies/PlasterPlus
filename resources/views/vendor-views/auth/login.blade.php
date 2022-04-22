@@ -13,25 +13,25 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/vendor.min.css">
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/vendor.min.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/theme.minc619.css?v=1.0">
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
 </head>
 
 <body>
 <!-- ========== MAIN CONTENT ========== -->
 <main id="content" role="main" class="main">
     <div class="position-fixed top-0 right-0 left-0 bg-img-hero"
-         style="height: 100%; background-image: url({{asset('public/assets/admin')}}/svg/components/login-background.png);">
+         style="height: 100%; background-image: url({{asset('assets/admin')}}/svg/components/login-background.png);">
     </div>
     @php($systemlogo=\App\Models\BusinessSetting::where(['key'=>'logo'])->first()->value)
     <!-- Content -->
     <div class="container py-5 py-sm-7">
         <a class="d-flex justify-content-center mb-5" href="javascript:">
             <img class="z-index-2"
-            onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+            onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                          src="{{asset('storage/app/public/business/'.$systemlogo)}}"
                   alt="Image Description" style="max-height: 100px;max-width: 300px">
         </a>
@@ -256,11 +256,11 @@
 
 
 <!-- JS Implementing Plugins -->
-<script src="{{asset('public/assets/admin')}}/js/vendor.min.js"></script>
+<script src="{{asset('assets/admin')}}/js/vendor.min.js"></script>
 
 <!-- JS Front -->
-<script src="{{asset('public/assets/admin')}}/js/theme.min.js"></script>
-<script src="{{asset('public/assets/admin')}}/js/toastr.js"></script>
+<script src="{{asset('assets/admin')}}/js/theme.min.js"></script>
+<script src="{{asset('assets/admin')}}/js/toastr.js"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())
@@ -362,7 +362,7 @@
 @endif
 <!-- IE Support -->
 <script>
-    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{asset('public/assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
 </script>
 </body>
 </html>

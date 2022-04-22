@@ -65,7 +65,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.date')}}</label>
-                                        <input type="date" id="date_from" class="form-control" required="" name="start_date"> 
+                                        <input type="date" id="date_from" class="form-control" required="" name="start_date">
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -101,7 +101,7 @@
                             <div class="form-group" style="margin-bottom:0%;">
                                 <center>
                                     <img style="width: 80%;border: 1px solid; border-radius: 10px;" id="viewer"
-                                         src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}" alt="campaign image"/>
+                                         src="{{asset('assets/admin/img/900x400/img1.jpg')}}" alt="campaign image"/>
                                 </center>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                 $("#type-product").hide();
                 $("#type-category").show();
             }
-        }   
+        }
 
         $("#date_from").on("change", function () {
             $('#date_to').attr('min',$(this).val());

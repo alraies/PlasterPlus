@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -81,7 +81,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h3>{{__('messages.products')}} <span class="badge badge-soft-dark ml-2">{{$foods->total()}}</span></h3>
-                            
+
                             <a href="{{route('admin.food.add-new')}}" class="btn btn-primary pull-right"><i
                                         class="tio-add-circle"></i> {{__('messages.add')}} {{__('messages.new')}} {{__('messages.food')}}</a>
                         </div>
@@ -107,13 +107,13 @@
                                 <tbody id="set-rows">
                                 @php($foods = \App\Models\Food::withoutGlobalScope(\App\Scopes\RestaurantScope::class)->where('restaurant_id', $restaurant->id)->latest()->paginate(25))
                                 @foreach($foods as $key=>$food)
-                                    
+
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>
                                         <a class="media align-items-center" href="{{route('admin.food.view',[$food['id']])}}">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$food['image']}}" 
-                                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$food->name}} image">
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$food['image']}}"
+                                                 onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" alt="{{$food->name}} image">
                                             <div class="media-body">
                                                 <h5 class="text-hover-primary mb-0">{{Str::limit($food['name'],20,'...')}}</h5>
                                             </div>

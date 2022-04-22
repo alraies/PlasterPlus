@@ -3,7 +3,7 @@
 @section('title','Add new campaign')
 
 @push('css_or_js')
-    <link href="{{asset('public/assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -85,7 +85,7 @@
                                         class="input-label-secondary">*</span></label>
                                 <select name="restaurant_id" class="js-data-example-ajax form-control" onchange="getRestaurantData('{{url('/')}}/admin/vendor/get-addons?data[]=0&restaurant_id='+this.value,'add_on')"  title="Select Restaurant" required>
                                 <option selected>Select Restaurant</option>
-                                    
+
                                 </select>
                             </div>
 
@@ -96,7 +96,7 @@
                         <div class="col-md-3 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.date')}}</label>
-                                <input type="date" id="date_from" class="form-control" required="" name="start_date"> 
+                                <input type="date" id="date_from" class="form-control" required="" name="start_date">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
@@ -107,7 +107,7 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.time')}}</label>                                    
+                                <label class="input-label" for="title">{{__('messages.start')}} {{__('messages.time')}}</label>
                                 <input type="time" id="start_time" class="form-control" name="start_time">
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         {{--<div class="col-md-4 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlSelect1">Sub Sub Category<span
@@ -242,7 +242,7 @@
 
                         <center id="image-viewer-section" class="pt-2">
                             <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                 src="{{asset('public/assets/admin/img/400x400/img2.jpg')}}" alt="banner image"/>
+                                 src="{{asset('assets/admin/img/400x400/img2.jpg')}}" alt="banner image"/>
                         </center>
                     </div>
                     <hr>
@@ -255,7 +255,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/tags-input.min.js"></script>
+    <script src="{{asset('assets/admin')}}/js/tags-input.min.js"></script>
     <script>
         $('#choice_attributes').on('change', function () {
             $('#customer_choice_options').html(null);
@@ -285,7 +285,7 @@
                         $('#available_time_starts').attr('max', closeing_time);
                         $('#available_time_starts').val(opening_time);
                         $('#available_time_ends').val(closeing_time);
-                    }                    
+                    }
                 },
             });
         }
@@ -380,7 +380,7 @@
                 }
             });
 
- 
+
             $('.js-data-example-ajax').select2({
                 ajax: {
                     url: '{{url('/')}}/admin/vendor/get-restaurants',

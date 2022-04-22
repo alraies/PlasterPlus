@@ -3,9 +3,9 @@
 @section('title',__('messages.edit_restaurant'))
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{asset('assets/admin')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
      <!-- Custom styles for this page -->
-     <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+     <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
      <meta name="csrf-token" content="{{ csrf_token() }}">
      <style>
         @media(max-width:375px){
@@ -13,7 +13,7 @@
            width: 367px !important;
          margin-left: 0 !important;
      }
-    
+
      }
 
 @media(max-width:500px){
@@ -21,14 +21,14 @@
            width: 400px !important;
          margin-left: 0 !important;
      }
-   
-   
+
+
 }
  </style>
 @endpush
 @section('content')
     <!-- Content Row -->
-    <div class="content container-fluid"> 
+    <div class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -65,12 +65,12 @@
                                             accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                         <label class="custom-file-label" for="customFileUpload">{{__('messages.choose')}} {{__('messages.file')}}</label>
                                     </div>
-                                </div> 
+                                </div>
                                 <center>
                                     <img style="width: auto;border: 1px solid; border-radius: 10px; max-height:200px;" id="viewer"
-                                    onerror="this.src='{{asset('public/assets/admin/img/image-place-holder.png')}}'"
+                                    onerror="this.src='{{asset('assets/admin/img/image-place-holder.png')}}'"
                                     src="{{asset('storage/app/public/restaurant/'.$shop->logo)}}" alt="Product thumbnail"/>
-                                </center>  
+                                </center>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,12 +80,12 @@
                                     accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                 <label class="custom-file-label" for="customFileUpload">{{__('messages.choose')}} {{__('messages.file')}}</label>
                             </div>
-                        </div> 
+                        </div>
                         <center>
                             <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
-                            onerror="this.src='{{asset('public/assets/admin/img/restaurant_cover.jpg')}}'"
+                            onerror="this.src='{{asset('assets/admin/img/restaurant_cover.jpg')}}'"
                             src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}" alt="Product thumbnail"/>
-                        </center>  
+                        </center>
                         <br>
                         <button type="submit" class="btn btn-primary text-capitalize" id="btn_update">{{__('messages.update')}}</button>
                         <a class="btn btn-danger text-capitalize" href="{{route('vendor.shop.view')}}">{{__('messages.cancel')}}</a>

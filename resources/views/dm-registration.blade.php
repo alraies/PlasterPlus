@@ -3,7 +3,7 @@
 @section('title',__('messages.deliveryman_registration'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .iti{
@@ -139,10 +139,10 @@
                                         accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required>
                                     <label class="custom-file-label" for="customFileEg1">{{__('messages.choose')}} {{__('messages.file')}}</label>
                                 </div>
-                                
+
                                 <center class="pt-4">
                                     <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                        src="{{asset('public/assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
+                                        src="{{asset('assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
                                 </center>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/toastr.js"></script>
+    <script src="{{asset('assets/admin')}}/js/toastr.js"></script>
     {!! Toastr::message() !!}
 
     @if ($errors->any())
@@ -206,10 +206,10 @@
         //     $(this).val(phone.getNumber());
         // })
 
-        
+
     </script>
 
-    <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('assets/admin/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             $("#coba").spartanMultiImagePicker({
@@ -219,7 +219,7 @@
                 groupClassName: 'col-lg-2 col-md-4 col-sm-4 col-6',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/admin/img/400x400/img2.jpg')}}',
+                    image: '{{asset('assets/admin/img/400x400/img2.jpg')}}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",

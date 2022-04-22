@@ -36,7 +36,7 @@
                     <p>5. You can get category and zone id from their list, please input the right ids.</p>
 
                     <p>6. You can upload your restaurant images in restaurant folder from gallery, and copy image`s path.</p>
-                    
+
                     <p>7. Default password for restaurant is 12345678.</p>
 
                 </div>
@@ -49,7 +49,7 @@
                     <div class="card mt-2 rest-part">
                         <div class="card-header">
                             <h4>Import Restaurants File</h4>
-                            <a href="{{asset('public/assets/restaurants_bulk_format.xlsx')}}" download=""
+                            <a href="{{asset('assets/restaurants_bulk_format.xlsx')}}" download=""
                                class="btn btn-secondary">Download Format</a>
                         </div>
                         <div class="card-body">

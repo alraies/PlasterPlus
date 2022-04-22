@@ -32,7 +32,7 @@
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
                                  src="{{asset('storage/app/public/product')}}/{{$product['image']}}"
-                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                 onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="Image Description">
                             <div class="d-block">
                                 <h4 class="display-2 text-dark mb-0">{{round($product->avg_rating,1)}}</h4>
@@ -203,7 +203,7 @@
                                     href="{{route('admin.customer.view',[$review['user_id']])}}">
                                         <div class="avatar avatar-circle">
                                             <img class="avatar-img" width="75" height="75"
-                                                onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                                onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                                 src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
                                                 alt="Image Description">
                                         </div>

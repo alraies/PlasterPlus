@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
     <style>
         .flex-item{
             padding: 10px;
@@ -113,7 +113,7 @@
         @elseif ($sub_tab=='withdraw')
             @include('admin-views.vendor.view.partials.withdraw_transaction')
         @endif
-        
+
     </div>
 </div>
 @endsection

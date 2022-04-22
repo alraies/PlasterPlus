@@ -323,7 +323,7 @@
                                 $detail->food = json_decode($detail->food_details, true);
                             }
                         ?>
-                            
+
                             <!-- Media -->
                                 <div class="media">
                                 @if($editing)
@@ -331,14 +331,14 @@
                                         <span class="avatar-status avatar-lg-status avatar-status-dark"><i class="tio-edit"></i></span>
                                         <img class="img-fluid"
                                              src="{{asset('storage/app/public/product')}}/{{$detail->food['image']}}"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                              alt="Image Description">
                                     </div>
                                 @else
                                     <a class="avatar avatar-xl mr-3" href="{{route('admin.food.view', $detail->food['id'])}}">
                                         <img class="img-fluid"
                                              src="{{asset('storage/app/public/product')}}/{{$detail->food['image']}}"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                              alt="Image Description">
                                     </a>
                                 @endif
@@ -387,7 +387,7 @@
                                 @php($restaurant_discount_amount += ($detail['discount_on_food']*$detail['quantity']))
                             <!-- End Media -->
                                 <hr>
-                        
+
                         @elseif(isset($detail->item_campaign_id)  && $detail->status)
                         <?php
                             if(!$editing)
@@ -399,17 +399,17 @@
                                 <div class="media">
                                     @if ($editing)
                                     <div class="avatar avatar-xl mr-3  cursor-pointer" onclick="quick_view_cart_item({{$key}})" title="{{__('messages.click_to_edit_this_item')}}">
-                                        <span class="avatar-status avatar-lg-status avatar-status-dark"><i class="tio-edit"></i></span>    
+                                        <span class="avatar-status avatar-lg-status avatar-status-dark"><i class="tio-edit"></i></span>
                                         <img class="img-fluid"
                                              src="{{asset('storage/app/public/campaign')}}/{{$detail->campaign['image']}}"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                              alt="Image Description">
                                     </div>
                                     @else
                                     <a class="avatar avatar-xl mr-3" href="{{route('admin.campaign.view', ['item', $detail->campaign['id']])}}">
                                         <img class="img-fluid"
                                              src="{{asset('storage/app/public/campaign')}}/{{$detail->campaign['image']}}"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                              alt="Image Description">
                                     </a>
                                     @endif
@@ -463,11 +463,11 @@
                         @endif
                     @endforeach
 
-                    <?php 
+                    <?php
                         $coupon_discount_amount = $order['coupon_discount_amount'];
 
                         $total_price = $product_price + $total_addon_price - $restaurant_discount_amount - $coupon_discount_amount;
-                    
+
                         $total_tax_amount= $order['total_tax_amount'];
 
                         if($editing)
@@ -479,19 +479,19 @@
                                 {
                                     $restaurant_discount_amount = 0;
                                 }
-                    
+
                                 if($restaurant_discount_amount > $restaurant_discount['max_discount'])
                                 {
                                     $restaurant_discount_amount = $restaurant_discount['max_discount'];
                                 }
                             }
-                            $coupon_discount_amount = $coupon ? \App\CentralLogics\CouponLogic::get_discount($coupon, $product_price + $total_addon_price - $restaurant_discount_amount) : $order['coupon_discount_amount']; 
+                            $coupon_discount_amount = $coupon ? \App\CentralLogics\CouponLogic::get_discount($coupon, $product_price + $total_addon_price - $restaurant_discount_amount) : $order['coupon_discount_amount'];
                             $tax = $order->restaurant->tax;
 
                             $total_price = $product_price + $total_addon_price - $restaurant_discount_amount - $coupon_discount_amount;
-                    
-                            $total_tax_amount = ($tax > 0)?(($total_price * $tax)/100):0;  
-                            
+
+                            $total_tax_amount = ($tax > 0)?(($total_price * $tax)/100):0;
+
                             $total_tax_amount = round($total_tax_amount, 2);
 
                             $restaurant_discount_amount = round($restaurant_discount_amount, 2);
@@ -573,7 +573,7 @@
                     <!-- Header -->
                     <div class="card-header">
                         <h4 class="card-header-title">{{__('messages.deliveryman')}}</h4>
-                        @if($order->delivery_man && !isset($order->delivered) && !$order->restaurant->self_delivery_system)  
+                        @if($order->delivery_man && !isset($order->delivered) && !$order->restaurant->self_delivery_system)
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                             {{__('messages.change')}}
                         </button>
@@ -582,14 +582,14 @@
                     <!-- End Header -->
 
                     <!-- Body -->
-                    
+
                     <div class="card-body">
-                    @if($order->delivery_man)    
-                        <a class="media align-items-center  deco-none" href="{{route('admin.delivery-man.preview',[$order->delivery_man['id']])}}">                            
+                    @if($order->delivery_man)
+                        <a class="media align-items-center  deco-none" href="{{route('admin.delivery-man.preview',[$order->delivery_man['id']])}}">
                             <div class="avatar avatar-circle mr-3">
-    
+
                                     <img class="avatar-img" style="width: 75px"
-                                    onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                    onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                     src="{{asset('storage/app/public/delivery-man/'.$order->delivery_man->image)}}"
                                     alt="Image Description">
                             </div>
@@ -613,7 +613,7 @@
                             <li>
                                 <a class="deco-none" href="tel:{{$order->delivery_man['phone']}}">
                                     <i class="tio-android-phone-vs mr-2"></i>
-                                {{$order->delivery_man['phone']}}</a> 
+                                {{$order->delivery_man['phone']}}</a>
                             </li>
                         </ul>
 
@@ -634,7 +634,7 @@
                             {{__('messages.location').' '.__('messages.not_found')}}
                         </span>
                         @endif
-           
+
                     @else
                         <div class="w-100 text-center">
                             <div class="hs-unfold">
@@ -643,9 +643,9 @@
                                 </button>
                             </div>
                         </div>
-                    @endif    
+                    @endif
                     </div>
-                    
+
                 <!-- End Body -->
                 </div>
                 <!-- End Card -->
@@ -661,12 +661,12 @@
                     <!-- Body -->
                     @if($order->customer)
                         <div class="card-body">
-     
-                            <a class="media align-items-center deco-none" href="{{route('admin.customer.view',[$order->customer['id']])}}">    
+
+                            <a class="media align-items-center deco-none" href="{{route('admin.customer.view',[$order->customer['id']])}}">
                                 <div class="avatar avatar-circle mr-3">
-                                    
+
                                     <img class="avatar-img" style="width: 75px"
-                                    onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                    onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                     src="{{asset('storage/app/public/profile/'.$order->customer->image)}}"
                                     alt="Image Description">
 
@@ -675,7 +675,7 @@
                                     <span class="text-body text-hover-primary">{{$order->customer['f_name'].' '.$order->customer['l_name']}}</span><br>
                                     <span class="badge badge-ligh">{{$order->customer->orders_count}} {{__('messages.orders')}}</span>
                                 </div>
-            
+
                             </a>
 
                             <hr>
@@ -745,7 +745,7 @@
                             <div class="avatar avatar-circle mr-3">
                                 <img
                                     class="avatar-img" style="width: 75px"
-                                    onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                    onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                     src="{{asset('storage/app/public/restaurant/'.$order->restaurant->logo)}}"
                                     alt="Image Description">
                             </div>
@@ -936,11 +936,11 @@
                         <div class="col-md-5 my-2">
                             <ul class="list-group overflow-auto" style="max-height:400px;">
                                 @foreach ($deliveryMen as $dm)
-                                    <li class="list-group-item"> 
+                                    <li class="list-group-item">
                                         <span class="dm_list" role='button' data-id="{{$dm['id']}}">
-                                            <img class="avatar avatar-sm avatar-circle mr-1" onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'" src="{{asset('storage/app/public/delivery-man')}}/{{$dm['image']}}" alt="{{$dm['name']}}">
+                                            <img class="avatar avatar-sm avatar-circle mr-1" onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'" src="{{asset('storage/app/public/delivery-man')}}/{{$dm['image']}}" alt="{{$dm['name']}}">
                                             {{$dm['name']}}
-                                        </span>    
+                                        </span>
 
                                         <a class="btn btn-primary btn-xs float-right" onclick="addDeliveryMan({{$dm['id']}})">{{__('messages.assign')}}</a>
                                     </li>
@@ -980,7 +980,7 @@
         </div>
     </div>
     <!-- End Modal -->
-    
+
     <div class="modal fade" id="quick-view" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content" id="quick-view-modal">
@@ -991,7 +991,7 @@
 @endsection
 
 @push('script_2')
-    
+
     <script>
         $('#search-form').on('submit', function (e) {
             e.preventDefault();
@@ -1000,7 +1000,7 @@
             nurl.searchParams.set('keyword', keyword);
             location.href = nurl;
         });
-        
+
         function set_category_filter(id) {
             var nurl = new URL('{!!url()->full()!!}');
             nurl.searchParams.set('category_id', id);
@@ -1185,7 +1185,7 @@
                             text: "{{__('messages.product_already_added_in_cart')}}"
                         });
                         return false;
-                    } 
+                    }
                     else if (data.data == 0) {
                         toastr.success('{{__('messages.product_has_been_added_in_cart')}}', {
                             CloseButton: true,
@@ -1363,7 +1363,7 @@
             }
         };
         function initializeGMap() {
-            
+
             map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
             var infowindow = new google.maps.InfoWindow();
@@ -1372,7 +1372,7 @@
                 position: new google.maps.LatLng({{$order->restaurant->latitude}}, {{$order->restaurant->longitude}}),
                 map: map,
                 title: "{{Str::limit($order->restaurant->name, 15, '...')}}",
-                icon: "{{asset('public/assets/admin/img/restaurant_map.png')}}"
+                icon: "{{asset('assets/admin/img/restaurant_map.png')}}"
             });
 
             google.maps.event.addListener(Restaurantmarker, 'click', (function(Restaurantmarker) {
@@ -1382,7 +1382,7 @@
                 }
             })(Restaurantmarker));
             map.fitBounds(dmbounds);
-            for (var i = 0; i < deliveryMan.length; i++) {                  
+            for (var i = 0; i < deliveryMan.length; i++) {
                 if(deliveryMan[i].lat)
                 {
                     // var contentString = "<div style='float:left'><img style='max-height:40px;wide:auto;' src='{{asset('storage/app/public/delivery-man')}}/"+deliveryMan[i].image+"'></div><div style='float:right; padding: 10px;'><b>"+deliveryMan[i].name+"</b><br/> "+deliveryMan[i].location+"</div>";
@@ -1393,7 +1393,7 @@
                         position: point,
                         map: map,
                         title: deliveryMan[i].location,
-                        icon: "{{asset('public/assets/admin/img/delivery_boy_map.png')}}"
+                        icon: "{{asset('assets/admin/img/delivery_boy_map.png')}}"
                     });
                     dmMarkers[deliveryMan[i].id]=marker;
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -1422,18 +1422,18 @@
                 map.setCenter(myLatlng);
             });
 
-            
+
             function initializegLocationMap() {
                 map = new google.maps.Map(document.getElementById("location_map_canvas"), myOptions);
 
                 var infowindow = new google.maps.InfoWindow();
-            
+
                 @if($order->customer && isset($address))
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng({{$address['latitude']}}, {{$address['longitude']}}),
                     map: map,
                     title: "{{$order->customer->f_name}} {{$order->customer->l_name}}",
-                    icon: "{{asset('public/assets/admin/img/customer_location.png')}}"
+                    icon: "{{asset('assets/admin/img/customer_location.png')}}"
                 });
 
                 google.maps.event.addListener(marker, 'click', (function(marker) {
@@ -1449,7 +1449,7 @@
                     position: new google.maps.LatLng({{$order->dm_last_location['latitude']}}, {{$order->dm_last_location['longitude']}}),
                     map: map,
                     title: "{{$order->delivery_man->f_name}}  {{$order->delivery_man->l_name}}",
-                    icon: "{{asset('public/assets/admin/img/delivery_boy_map.png')}}"
+                    icon: "{{asset('assets/admin/img/delivery_boy_map.png')}}"
                 });
 
                 google.maps.event.addListener(dmmarker, 'click', (function(dmmarker) {
@@ -1466,7 +1466,7 @@
                     position: new google.maps.LatLng({{$order->restaurant->latitude}}, {{$order->restaurant->longitude}}),
                     map: map,
                     title: "{{Str::limit($order->restaurant->name, 15,'...')}}",
-                    icon: "{{asset('public/assets/admin/img/restaurant_map.png')}}"
+                    icon: "{{asset('assets/admin/img/restaurant_map.png')}}"
                 });
 
                 google.maps.event.addListener(Retaurantmarker, 'click', (function(Retaurantmarker) {
@@ -1477,7 +1477,7 @@
                 })(Retaurantmarker));
                 locationbounds.extend(Retaurantmarker.getPosition());
                 @endif
-                
+
                 google.maps.event.addListenerOnce(map, 'idle', function() {
                     map.fitBounds(locationbounds);
                 });

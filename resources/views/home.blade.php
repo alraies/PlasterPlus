@@ -10,7 +10,7 @@
 
         @php($landing_page_text = \App\Models\BusinessSetting::where(['key'=>'landing_page_text'])->first())
         @php($landing_page_text = isset($landing_page_text->value)?json_decode($landing_page_text->value, true):null)
-        
+
         @php($landing_page_links = \App\Models\BusinessSetting::where(['key'=>'landing_page_links'])->first())
         @php($landing_page_links = isset($landing_page_links->value)?json_decode($landing_page_links->value, true):null)
 
@@ -39,21 +39,21 @@
                                 @if($landing_page_links['app_url_android_status'])
                                 <div class="play-store">
                                     <a href="{{$landing_page_links['app_url_android']}}">
-                                        <img src="{{asset('public/assets/landing')}}/image/play_store.png">
+                                        <img src="{{asset('assets/landing')}}/image/play_store.png">
                                     </a>
                                 </div>
                                 @endif
                                 @if($landing_page_links['app_url_ios_status'])
                                 <div class="apple-store">
                                     <a href="{{$landing_page_links['app_url_ios']}}">
-                                        <img src="{{asset('public/assets/landing')}}/image/apple_store.png">
+                                        <img src="{{asset('assets/landing')}}/image/apple_store.png">
                                     </a>
                                 </div>
                                 @endif
                                 @if($landing_page_links['web_app_url_status'])
                                 <div class="apple-store">
                                     <a href="{{$landing_page_links['web_app_url']}}">
-                                        <img src="{{asset('public/assets/landing')}}/image/browse.png">
+                                        <img src="{{asset('assets/landing')}}/image/browse.png">
                                     </a>
                                 </div>
                                 @endif
@@ -62,7 +62,7 @@
 
                         <div
                             class="col-lg-5 d-flex justify-content-center justify-content-md-end text-center text-md-right top-image">
-                            <img src="{{asset('public/assets/landing')}}/image/{{isset($landing_page_images)?$landing_page_images['top_content_image']:'double_screen_image.png'}}">
+                            <img src="{{asset('assets/landing')}}/image/{{isset($landing_page_images)?$landing_page_images['top_content_image']:'double_screen_image.png'}}">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         </div>
                         <div
                             class="col-lg-6 col-md-6  d-flex justify-content-center justify-content-md-start text-center text-md-left featured-section__image">
-                            <img src="{{asset('public/assets/landing')}}/image/{{isset($landing_page_images)?$landing_page_images['about_us_image']:'about_us_image.png'}}"></img>
+                            <img src="{{asset('assets/landing')}}/image/{{isset($landing_page_images)?$landing_page_images['about_us_image']:'about_us_image.png'}}"></img>
                         </div>
                         <!-- <div class="col-lg-3 col-md-0"></div> -->
                         <div class="col-lg-6 col-md-6">
@@ -122,7 +122,7 @@
                         @foreach ($speciality as $sp)
                             <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('public/assets/landing')}}/image/{{$sp['img']}}"></img>
+                                    <img src="{{asset('assets/landing')}}/image/{{$sp['img']}}"></img>
                                 </div>
                                 <div style="margin: 0px 55px 30px 54px">
                                     <p>{{$sp['title']}}</p>
@@ -131,7 +131,7 @@
                         @endforeach
                             <!-- <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('public/assets/landing')}}/image/best_dishes_icon.png"></img>
+                                    <img src="{{asset('assets/landing')}}/image/best_dishes_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 54px 30px 55px">
                                     <p>Best Dishes Near You</p>
@@ -141,7 +141,7 @@
                             <div>
                                 <div class="choosing-section__image-card">
                                     <img
-                                        src="{{asset('public/assets/landing')}}/image/virtual_restaurant_icon.png"></img>
+                                        src="{{asset('assets/landing')}}/image/virtual_restaurant_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 31px 30px 31px">
                                     <p>Your Own Virtual Restaurant</p>
@@ -173,7 +173,7 @@
                                             @foreach($testimonial as $data)
                                                 <div class="testimonial">
                                                     <div class="pic">
-                                                        <img src="{{asset('public/assets/landing')}}/image/{{$data['img']}}"
+                                                        <img src="{{asset('assets/landing')}}/image/{{$data['img']}}"
                                                              alt="">
                                                     </div>
                                                     <div class="testimonial-content">

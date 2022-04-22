@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
     <style>
         .flex-item{
             padding: 10px;
@@ -115,5 +115,5 @@
 @endsection
 
 @push('script_2')
-    
+
 @endpush

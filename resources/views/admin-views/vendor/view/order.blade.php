@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -258,7 +258,7 @@
                         <!-- Footer -->
                         <div class="card-footer">
                             <!-- Pagination -->
-                            <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                            <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                                 <div class="col-sm-auto">
                                     <div class="d-flex justify-content-center justify-content-sm-end">
                                         <!-- Pagination -->
@@ -272,7 +272,7 @@
                         <!-- End Card -->
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

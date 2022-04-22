@@ -7,10 +7,10 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('public/assets/mercado_pogo/css/index.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/mercado_pogo/css/index.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <!-- <script type="text/javascript" src="{{asset('public/assets/mercado_pogo/js/index.js')}}" defer></script> -->
+    <!-- <script type="text/javascript" src="{{asset('assets/mercado_pogo/js/index.js')}}" defer></script> -->
 </head>
 <body>
 <main>
@@ -93,7 +93,7 @@
 <script>
     const publicKey = document.getElementById("mercado-pago-public-key").value;
     const mercadopago = new MercadoPago(publicKey);
-    
+
     loadCardForm();
     function loadCardForm() {
         const productCost = '{{$order->order_amount}}';
@@ -169,7 +169,7 @@
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "X-CSRF-TOKEN": "{{csrf_token()}}"  
+                            "X-CSRF-TOKEN": "{{csrf_token()}}"
                         },
                         body: JSON.stringify({
                             token,

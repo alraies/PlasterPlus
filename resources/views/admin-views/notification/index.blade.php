@@ -42,7 +42,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="input-label" for="tergat">{{__('messages.send')}} {{__('messages.to')}}</label>
-                        
+
                                 <select name="tergat" class="form-control" id="tergat" data-placeholder="{{__('messages.select')}} {{__('messages.tergat')}}" required>
                                     <option value="customer">{{__('messages.customer')}}</option>
                                     <option value="deliveryman">{{__('messages.deliveryman')}}</option>
@@ -65,7 +65,7 @@
                         <hr>
                         <center>
                             <img style="width: 30%;border: 1px solid; border-radius: 10px;" id="viewer"
-                                 src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}" alt="image"/>
+                                 src="{{asset('assets/admin/img/900x400/img1.jpg')}}" alt="image"/>
                         </center>
                     </div>
                     <hr>
@@ -96,7 +96,7 @@
                                 <!-- End Search -->
                                 </form>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive datatable-custom">
@@ -234,10 +234,10 @@
         });
 
         $('#notification').on('submit', function (e) {
-            
+
             e.preventDefault();
             var formData = new FormData(this);
-            
+
             Swal.fire({
                 title: '{{__('messages.are_you_sure')}}',
                 text: '{{__('messages.you want to sent notification to')}}'+$('#tergat').val()+'?',

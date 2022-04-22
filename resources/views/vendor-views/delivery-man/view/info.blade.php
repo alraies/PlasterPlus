@@ -56,7 +56,7 @@
                     <div class="col-md-auto mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                 onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                  src="{{asset('storage/app/public/delivery-man')}}/{{$dm['image']}}"
                                  alt="Image Description">
                             <div class="d-block">
@@ -149,7 +149,7 @@
             <!-- End Body -->
         </div>
         <!-- End Card -->
-        
+
         <div class="row my-3">
             <!-- Earnings (Monthly) Card Example -->
             <div class="for-card col-sm-4 col-6 mb-2">
@@ -241,7 +241,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-circle">
                                         <img class="avatar-img" width="75" height="75"
-                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
+                                             onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                                              src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
                                              alt="Image Description">
                                     </div>
@@ -268,7 +268,7 @@
                             </td>
                             <td>
                                 @foreach(json_decode($review['attachment'],true) as $attachment)
-                                    <img width="100" onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" src="{{asset('storage/app/public')}}/{{$attachment}}">
+                                    <img width="100" onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" src="{{asset('storage/app/public')}}/{{$attachment}}">
                                 @endforeach
                             </td>
                             <td>

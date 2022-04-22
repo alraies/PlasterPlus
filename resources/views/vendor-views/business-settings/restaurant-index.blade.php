@@ -3,7 +3,7 @@
 @section('title',__('messages.settings'))
 
 @push('css_or_js')
-<link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+<link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 <style>
     .slider {
         position: absolute;

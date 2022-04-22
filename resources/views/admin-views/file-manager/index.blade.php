@@ -56,7 +56,7 @@
                         <div class="col-sm-2">
                             @if($file['type']=='folder')
                             <a class="btn"  href="{{route('admin.file-manager.index', base64_encode($file['path']))}}">
-                                <img class="img-thumbnail" src="{{asset('public/assets/admin/img/folder.png')}}" alt="">
+                                <img class="img-thumbnail" src="{{asset('assets/admin/img/folder.png')}}" alt="">
                                 <p>{{Str::limit($file['name'],10)}}</p>
                             </a>
                             @elseif($file['type']=='file')
@@ -64,7 +64,7 @@
                             <button class="btn w-100"  data-toggle="modal" data-target="#imagemodal{{$key}}" title="{{$file['name']}}">
                                 <div class="gallary-card">
                                     <img src="{{asset('storage/app/'.$file['path'])}}" alt="{{$file['name']}}" style="height:auto;width:100%;">
-                                </div>    
+                                </div>
                                 <p style="overflow:hidden">{{Str::limit($file['name'],10)}}</p>
                             </button>
                             <div class="modal fade" id="imagemodal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,7 +82,7 @@
                                             <button class="btn btn-info" onclick="copy_test('{{$file['db_path']}}')"><i class="tio-copy"></i> Copy path</button>
                                             {{--<form action="{{route('admin.file-manager.destroy',base64_encode($file['path']))}}" method="post">
                                                 @csrf
-                                                @method('delete')    
+                                                @method('delete')
                                                 <button class="btn btn-danger" type="submit"><i class="tio-delete"></i> {{__('messages.delete')}}</button>
                                             </form>--}}
                                         </div>
@@ -187,6 +187,6 @@
             ProgressBar: true
         });
     }
-    
+
 </script>
 @endpush
