@@ -54,7 +54,7 @@ class FoodController extends Controller
             'name.0.required' => trans('messages.item_name_required'),
             'category_id.required' => trans('messages.category_required'),
             'veg.required'=>trans('messages.item_type_is_required'),
-            'description.*.max' => trans('messages.description_length_warning'),   
+            'description.*.max' => trans('messages.description_length_warning'),
         ]);
 
         if ($request['discount_type'] == 'percent') {
@@ -144,8 +144,8 @@ class FoodController extends Controller
         $food->price = $request->price;
         $food->veg = $request->veg;
         $food->image = Helpers::upload('product/', 'png', $request->file('image'));
-        $food->available_time_starts = $request->available_time_starts;
-        $food->available_time_ends = $request->available_time_ends;
+        // $food->available_time_starts = $request->available_time_starts;
+        // $food->available_time_ends = $request->available_time_ends;
         $food->discount = $request->discount_type == 'amount' ? $request->discount : $request->discount;
         $food->discount_type = $request->discount_type;
         $food->attributes = $request->has('attribute_id') ? json_encode($request->attribute_id) : json_encode([]);
@@ -239,7 +239,7 @@ class FoodController extends Controller
             'name.0.required' => trans('messages.item_name_required'),
             'category_id.required' => trans('messages.category_required'),
             'veg.required'=>trans('messages.item_type_is_required'),
-            'description.*.max' => trans('messages.description_length_warning'),   
+            'description.*.max' => trans('messages.description_length_warning'),
         ]);
 
         if ($request['discount_type'] == 'percent') {
@@ -331,8 +331,8 @@ class FoodController extends Controller
         $p->price = $request->price;
         $p->veg = $request->veg;
         $p->image = $request->has('image') ? Helpers::update('product/', $p->image, 'png', $request->file('image')) : $p->image;
-        $p->available_time_starts = $request->available_time_starts;
-        $p->available_time_ends = $request->available_time_ends;
+        // $p->available_time_starts = $request->available_time_starts;
+        // $p->available_time_ends = $request->available_time_ends;
         $p->discount = $request->discount_type == 'amount' ? $request->discount : $request->discount;
         $p->discount_type = $request->discount_type;
         $p->attributes = $request->has('attribute_id') ? json_encode($request->attribute_id) : json_encode([]);
@@ -441,7 +441,7 @@ class FoodController extends Controller
             });
         })
         ->type($type)->latest()->paginate(config('default_pagination'));
-        $category =$category_id !='all'? Category::findOrFail($category_id):null;   
+        $category =$category_id !='all'? Category::findOrFail($category_id):null;
         return view('vendor-views.product.list', compact('foods', 'category', 'type'));
     }
 
@@ -479,7 +479,7 @@ class FoodController extends Controller
         $data = [];
         $skip = ['youtube_video_url'];
         foreach ($collections as $collection) {
-            if ($collection['name'] === "" || $collection['category_id'] === "" || $collection['sub_category_id'] === "" || $collection['price'] === "" || empty($collection['available_time_starts']) === "" || empty($collection['available_time_ends']) || empty($collection['veg']) === "") {
+            if ($collection['name'] === "" || $collection['category_id'] === "" || $collection['sub_category_id'] === "" || $collection['price'] === ""  || empty($collection['veg']) === "") {
                 Toastr::error(trans('messages.please_fill_all_required_fields'));
                 return back();
             }
@@ -492,8 +492,8 @@ class FoodController extends Controller
                 'discount' => $collection['discount'],
                 'discount_type' => $collection['discount_type'],
                 'description' => $collection['description'],
-                'available_time_starts' => $collection['available_time_starts'],
-                'available_time_ends' => $collection['available_time_ends'],
+                // 'available_time_starts' => $collection['available_time_starts'],
+                // 'available_time_ends' => $collection['available_time_ends'],
                 'image' => $collection['image'],
                 'restaurant_id' => Helpers::get_restaurant_id(),
                 'add_ons' => json_encode([]),

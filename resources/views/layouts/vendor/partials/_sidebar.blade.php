@@ -240,7 +240,7 @@
                     </li>
 
                     <!-- AddOn -->
-                    @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))
+                    <!-- @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))
                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/addon*')?'active':''}}">
                         <a class="js-navbar-vertical-aside-menu-link nav-link"
                             href="{{route('vendor.addon.add-new')}}" title="{{__('messages.addons')}}"
@@ -250,7 +250,7 @@
                                 {{__('messages.addons')}}
                             </span>
                         </a>
-                    </li>
+                    </li> -->
                     @endif
                     <!-- End AddOn -->
                     @if(\App\CentralLogics\Helpers::employee_module_permission_check('food'))
@@ -447,7 +447,7 @@
                         >
                             <i class="tio-table nav-icon"></i>
                             <span
-                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{__('messages.my')}} {{__('messages.wallet')}}</span>
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">محفظتي</span>
                         </a>
                     </li>
                     @endif

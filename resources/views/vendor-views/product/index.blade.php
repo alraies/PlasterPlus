@@ -175,11 +175,11 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlInput1">{{__('messages.available')}} {{__('messages.time')}} {{__('messages.starts')}}</label>
-                                <input type="time" name="available_time_starts" class="form-control" 
+                                <input type="time" name="available_time_starts" class="form-control"
                                        placeholder="Ex : 10:30 am" required>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                        required>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label>{{__('messages.food')}} {{__('messages.image')}}</label><small style="color: red">* ( {{__('messages.ratio')}} 1:1 )</small>

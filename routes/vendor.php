@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
         Route::get('/', 'DashboardController@dashboard')->name('dashboard');
         Route::get('/get-restaurant-data', 'DashboardController@restaurant_data')->name('get-restaurant-data');
         Route::get('/reviews', 'ReviewController@index')->name('reviews')->middleware('module:reviews');
-        
+
 
         Route::group(['prefix' => 'pos', 'as' => 'pos.'], function () {
             Route::post('variant_price', 'POSController@variant_price')->name('variant_price');
@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::post('search', 'EmployeeController@search')->name('search');
         });
 
-        Route::group(['prefix' => 'food', 'as' => 'food.', 'middleware' => ['module:food']], function () {
+        Route::group(['prefix' => 'Item', 'as' => 'food.', 'middleware' => ['module:food']], function () {
             Route::get('add-new', 'FoodController@index')->name('add-new');
             Route::post('variant-combination', 'FoodController@variant_combination')->name('variant-combination');
             Route::post('store', 'FoodController@store')->name('store');
@@ -104,7 +104,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::post('search', 'FoodController@search')->name('search');
             Route::get('view/{id}', 'FoodController@view')->name('view');
             Route::get('get-categories', 'FoodController@get_categories')->name('get-categories');
-            
+
             //Import and export
             Route::get('bulk-import', 'FoodController@bulk_import_index')->name('bulk-import');
             Route::post('bulk-import', 'FoodController@bulk_import_data');
@@ -183,7 +183,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::post('bank-update', 'ProfileController@bank_update')->name('bank_update');
         });
 
-        Route::group(['prefix' => 'restaurant', 'as' => 'shop.', 'middleware' => ['module:my_shop']], function () {
+        Route::group(['prefix' => 'Markets', 'as' => 'shop.', 'middleware' => ['module:my_shop']], function () {
             Route::get('view', 'RestaurantController@view')->name('view');
             Route::get('edit', 'RestaurantController@edit')->name('edit');
             Route::post('update', 'RestaurantController@update')->name('update');
