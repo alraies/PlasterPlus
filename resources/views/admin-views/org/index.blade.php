@@ -71,7 +71,7 @@
                         <center>
                             <img style="width: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
                                 @if(isset($org))
-                                src="{{asset('storage/app/public/org')}}/{{$org['image']}}"
+                                src="{{asset('storage/org')}}/{{$org['image']}}"
                                 @else
                                 src="{{asset('assets/admin/img/900x400/img1.jpg')}}"
                                 @endif

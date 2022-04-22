@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Http;
 class ConfigController extends Controller
 {
     private $map_api_key;
-    
-    function __construct() 
+
+    function __construct()
     {
         $map_api_key_server=BusinessSetting::where(['key'=>'map_api_key_server'])->first();
         $map_api_key_server=$map_api_key_server?$map_api_key_server->value:null;
@@ -60,19 +60,19 @@ class ConfigController extends Controller
             // 'restaurant_location_coverage' => Branch::where(['id'=>1])->first(['longitude','latitude','coverage']),
             // 'minimum_order_value' => (float)BusinessSetting::where(['key' => 'minimum_order_value'])->first()->value,
             'base_urls' => [
-                'product_image_url' => asset('storage/app/public/product'),
-                'customer_image_url' => asset('storage/app/public/profile'),
-                'banner_image_url' => asset('storage/app/public/banner'),
-                'category_image_url' => asset('storage/app/public/category'),
-                'review_image_url' => asset('storage/app/public/review'),
-                'notification_image_url' => asset('storage/app/public/notification'),
-                'restaurant_image_url' => asset('storage/app/public/restaurant'),
-                'vendor_image_url' => asset('storage/app/public/vendor'),
-                'restaurant_cover_photo_url' => asset('storage/app/public/restaurant/cover'),
-                'delivery_man_image_url' => asset('storage/app/public/delivery-man'),
-                'chat_image_url' => asset('storage/app/public/conversation'),
-                'campaign_image_url' => asset('storage/app/public/campaign'),
-                'business_logo_url' => asset('storage/app/public/business')
+                'product_image_url' => asset('storage/product'),
+                'customer_image_url' => asset('storage/profile'),
+                'banner_image_url' => asset('storage/banner'),
+                'category_image_url' => asset('storage/category'),
+                'review_image_url' => asset('storage/review'),
+                'notification_image_url' => asset('storage/notification'),
+                'restaurant_image_url' => asset('storage/restaurant'),
+                'vendor_image_url' => asset('storage/vendor'),
+                'restaurant_cover_photo_url' => asset('storage/restaurant/cover'),
+                'delivery_man_image_url' => asset('storage/delivery-man'),
+                'chat_image_url' => asset('storage/conversation'),
+                'campaign_image_url' => asset('storage/campaign'),
+                'business_logo_url' => asset('storage/business')
             ],
             'country' => BusinessSetting::where(['key' => 'country'])->first()->value,
             'default_location'=> [ 'lat'=> $default_location?$default_location['lat']:'23.757989', 'lng'=> $default_location?$default_location['lng']:'90.360587' ],
@@ -191,7 +191,7 @@ class ConfigController extends Controller
         $response = Http::get('https://maps.googleapis.com/maps/api/place/details/json?placeid='.$request['placeid'].'&key='.$this->map_api_key);
         return $response->json();
     }
-    
+
     public function geocode_api(Request $request)
     {
         $validator = Validator::make($request->all(), [

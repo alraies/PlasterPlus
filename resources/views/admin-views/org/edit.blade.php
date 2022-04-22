@@ -72,7 +72,7 @@
                         <div class="col-12">
                             <center>
                                 <img style="width: 30%;border: 1px solid; border-radius: 10px;" id="viewer"
-                                     src="{{asset('storage/app/public/org')}}/{{$org['image']}}" alt=""/>
+                                     src="{{asset('storage/org')}}/{{$org['image']}}" alt=""/>
                             </center>
                         </div>
                     </div>

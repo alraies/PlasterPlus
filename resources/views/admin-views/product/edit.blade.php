@@ -238,7 +238,7 @@
 
                         <center style="display: block" id="image-viewer-section" class="pt-2">
                             <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                 src="{{asset('storage/app/public/product')}}/{{$product['image']}}"
+                                 src="{{asset('storage/product')}}/{{$product['image']}}"
                                  alt="product image"/>
                         </center>
                     </div>

@@ -8,7 +8,7 @@
     <!-- Favicon -->
     @php($logo=\App\Models\BusinessSetting::where(['key'=>'icon'])->first()->value)
     <link rel="shortcut icon" href="">
-    <link rel="icon" type="image/x-icon" href="{{asset('storage/app/public/business/'.$logo??'')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('storage/business/'.$logo??'')}}">
     <!-- Font -->
 <!-- <link href="{{asset('assets/admin')}}/fonts/NotoKufiArabic-Regular.woff" rel="stylesheet"> -->
     <!-- CSS Implementing Plugins -->

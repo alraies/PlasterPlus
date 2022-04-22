@@ -30,7 +30,7 @@
                     <div class="col-md-auto mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                                 src="{{asset('storage/app/public/banner')}}/{{$banner->image}}"
+                                 src="{{asset('storage/banner')}}/{{$banner->image}}"
                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="Image Description">
                             <div class="d-block">
@@ -128,7 +128,7 @@
                                         <div style="height: 60px; width: 60px; overflow-x: hidden;overflow-y: hidden">
                                             <img width="60" style="border-radius: 50%"
                                                  onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                                 src="{{asset('storage/app/public/restaurant')}}/{{$dm['logo']}}">
+                                                 src="{{asset('storage/restaurant')}}/{{$dm['logo']}}">
                                         </div>
                                     </td>
                                     <td>

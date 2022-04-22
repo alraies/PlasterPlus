@@ -75,7 +75,7 @@
                             <div class="form-group" style="margin-bottom:0%;">
                                 <center>
                                     <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                                        src="{{asset('storage/app/public/restaurant').'/'.$restaurant->logo}}" alt="delivery-man image"/>
+                                        src="{{asset('storage/restaurant').'/'.$restaurant->logo}}" alt="delivery-man image"/>
                                 </center>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                     <center>
                         <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
                         onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'"
-                        src="{{asset('storage/app/public/restaurant/cover/'.$restaurant->cover_photo)}}" alt="Product thumbnail"/>
+                        src="{{asset('storage/restaurant/cover/'.$restaurant->cover_photo)}}" alt="Product thumbnail"/>
                     </center>
 
                     <br>

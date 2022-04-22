@@ -15,12 +15,12 @@
                     <img class="navbar-brand-logo"
                          style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
                          onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                         src="{{asset('storage/app/public/restaurant/'.$restaurant_data->logo)}}"
+                         src="{{asset('storage/restaurant/'.$restaurant_data->logo)}}"
                          alt="Logo">
                     <img class="navbar-brand-logo-mini"
                          style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
                          onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                         src="{{asset('storage/app/public/restaurant/'.$restaurant_data->logo)}}" alt="Logo">
+                         src="{{asset('storage/restaurant/'.$restaurant_data->logo)}}" alt="Logo">
                 </a>
                 {{\Illuminate\Support\Str::limit($restaurant_data->name,15)}}
                 <!-- End Logo -->

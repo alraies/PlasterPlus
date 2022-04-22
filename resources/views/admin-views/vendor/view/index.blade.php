@@ -202,7 +202,7 @@
                     <div class="d-flex align-items-center">
                         <img class="avatar avatar-xxl avatar-4by3 mr-4"
                         onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                        src="{{asset('storage/app/public/restaurant')}}/{{$restaurant->logo}}"
+                        src="{{asset('storage/restaurant')}}/{{$restaurant->logo}}"
                                 alt="{{$restaurant->name}} Logo">
 
                     </div>
@@ -339,7 +339,7 @@
                             <div class="text-center">
                                 <div class="avatar avatar-xxl avatar-circle avatar-border-lg">
                                     <img class="avatar-img" onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                src="{{asset('storage/app/public/vendor')}}/{{$restaurant->vendor->image}}" alt="Image Description">
+                                src="{{asset('storage/vendor')}}/{{$restaurant->vendor->image}}" alt="Image Description">
                                 </div>
 
 

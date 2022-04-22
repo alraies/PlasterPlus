@@ -251,7 +251,7 @@
 
                         <center id="image-viewer-section" class="pt-2">
                             <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
-                            src="{{asset('storage/app/public/campaign')}}/{{$campaign->image}}" alt="campaign image"/>
+                            src="{{asset('storage/campaign')}}/{{$campaign->image}}" alt="campaign image"/>
                         </center>
                     </div>
                     <hr>

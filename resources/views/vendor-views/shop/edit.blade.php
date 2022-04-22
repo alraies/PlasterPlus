@@ -69,7 +69,7 @@
                                 <center>
                                     <img style="width: auto;border: 1px solid; border-radius: 10px; max-height:200px;" id="viewer"
                                     onerror="this.src='{{asset('assets/admin/img/image-place-holder.png')}}'"
-                                    src="{{asset('storage/app/public/restaurant/'.$shop->logo)}}" alt="Product thumbnail"/>
+                                    src="{{asset('storage/restaurant/'.$shop->logo)}}" alt="Product thumbnail"/>
                                 </center>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                         <center>
                             <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
                             onerror="this.src='{{asset('assets/admin/img/restaurant_cover.jpg')}}'"
-                            src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}" alt="Product thumbnail"/>
+                            src="{{asset('storage/restaurant/cover/'.$shop->cover_photo)}}" alt="Product thumbnail"/>
                         </center>
                         <br>
                         <button type="submit" class="btn btn-primary text-capitalize" id="btn_update">{{__('messages.update')}}</button>

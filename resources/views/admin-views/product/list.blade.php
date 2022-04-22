@@ -223,7 +223,7 @@
                                     <td>{{$key+$foods->firstItem()}}</td>
                                     <td>
                                         <a class="media align-items-center" href="{{route('admin.food.view',[$food['id']])}}">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$food['image']}}"
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/product')}}/{{$food['image']}}"
                                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" alt="{{$food->name}} image">
                                             <div class="media-body">
                                                 <h5 class="text-hover-primary mb-0">{{Str::limit($food['name'],20,'...')}}</h5>

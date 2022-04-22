@@ -111,7 +111,7 @@
                                         <td>
                                         @if ($review->food)
                                             <a class="media align-items-center" href="{{route('admin.food.view',[$review->food['id']])}}">
-                                                <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$review->food['image']}}"
+                                                <img class="avatar avatar-lg mr-3" src="{{asset('storage/product')}}/{{$review->food['image']}}"
                                                     onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" alt="{{$review->food->name}} image">
                                                 <div class="media-body">
                                                     <h5 class="text-hover-primary mb-0">{{Str::limit($review->food['name'],10)}}</h5>
@@ -128,7 +128,7 @@
                                                 <div class="avatar avatar-circle">
                                                     <img class="avatar-img" width="75" height="75"
                                                         onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                                        src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
+                                                        src="{{asset('storage/profile/'.$review->customer->image)}}"
                                                         alt="Image Description">
                                                 </div>
                                                 <div class="ml-3">

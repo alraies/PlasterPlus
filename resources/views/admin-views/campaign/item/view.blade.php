@@ -31,7 +31,7 @@
                     <div class="col-sm-4 mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                                 src="{{asset('storage/app/public/campaign')}}/{{$campaign['image']}}"
+                                 src="{{asset('storage/campaign')}}/{{$campaign['image']}}"
                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="Image Description">
                             {{--<!-- <div class="d-block">
@@ -141,7 +141,7 @@
                             <img
                                 class="avatar-img avatar-circle" style="width: 75px;margin:auto;"
                                 onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                src="{{asset('storage/app/public/restaurant/'.$campaign->restaurant->logo)}}"
+                                src="{{asset('storage/restaurant/'.$campaign->restaurant->logo)}}"
                                 alt="Image Description">
                             <label class="input-label">{{$campaign->restaurant['name']}}</label>
                         </a>

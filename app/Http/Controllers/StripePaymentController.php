@@ -45,7 +45,7 @@ class StripePaymentController extends Controller
                     'unit_amount' => $order->order_amount * 100,
                     'product_data' => [
                         'name' => BusinessSetting::where(['key' => 'business_name'])->first()->value,
-                        'images' => [asset('storage/app/public/company') . '/' . BusinessSetting::where(['key' => 'logo'])->first()->value],
+                        'images' => [asset('storage/company') . '/' . BusinessSetting::where(['key' => 'logo'])->first()->value],
                     ],
                 ],
                 'quantity' => 1,

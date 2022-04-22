@@ -16,7 +16,7 @@
                 @if($shop->cover_photo)
                 <div class="row">
                     <div class="col-12"  style="max-height:250px; overflow-y: hidden;">
-                         <img src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}" onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'" style="max-height:auto;width: 100%;">
+                         <img src="{{asset('storage/restaurant/cover/'.$shop->cover_photo)}}" onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'" style="max-height:auto;width: 100%;">
                     </div>
                 </div>
                 @endif
@@ -32,7 +32,7 @@
                     @else
 
                         <div class="col-md-4">
-                            <img src="{{asset('storage/app/public/restaurant/'.$shop->logo)}}" class="rounded-circle border"
+                            <img src="{{asset('storage/restaurant/'.$shop->logo)}}" class="rounded-circle border"
                             onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
                             height="200" width="200" alt="">
                         </div>

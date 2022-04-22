@@ -9,7 +9,7 @@
         </td>
         <td>
             <div style="overflow-x: hidden;overflow-y: hidden;">
-                <img src="{{asset('storage/app/public/campaign')}}/{{$campaign['image']}}" style="width: 100%; max-height:75px; margin-top:auto; margin-bottom:auto;"
+                <img src="{{asset('storage/campaign')}}/{{$campaign['image']}}" style="width: 100%; max-height:75px; margin-top:auto; margin-bottom:auto;"
                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'">
             </div>
         </td>

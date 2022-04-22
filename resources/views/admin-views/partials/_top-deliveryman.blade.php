@@ -23,7 +23,7 @@
                     <center class="mt-6">
                         <img style="border-radius: 50%;width: 60px;height: 60px"
                              onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                             src="{{asset('storage/app/public/delivery-man')}}/{{$item['image']??''}}">
+                             src="{{asset('storage/delivery-man')}}/{{$item['image']??''}}">
                     </center>
                     <div class="text-center mt-2">
                                             <span class=""

@@ -31,7 +31,7 @@
                     <div class="col-sm-4 mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xxl avatar-4by3 mr-4"
-                                 src="{{asset('storage/app/public/product')}}/{{$product['image']}}"
+                                 src="{{asset('storage/product')}}/{{$product['image']}}"
                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="Image Description">
                             <div class="d-block">
@@ -126,7 +126,7 @@
                             <img
                                 class="avatar-img avatar-circle" style="width: 75px;margin:auto;"
                                 onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                src="{{asset('storage/app/public/restaurant/'.$product->restaurant->logo)}}"
+                                src="{{asset('storage/restaurant/'.$product->restaurant->logo)}}"
                                 alt="Image Description">
                             <label class="input-label">{{$product->restaurant['name']}}</label>
                         </a>
@@ -224,7 +224,7 @@
                                         <div class="avatar avatar-circle">
                                             <img class="avatar-img" width="75" height="75"
                                                 onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                                src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
+                                                src="{{asset('storage/profile/'.$review->customer->image)}}"
                                                 alt="Image Description">
                                         </div>
                                         <div class="ml-3">
