@@ -189,7 +189,7 @@
                             </ul>
                         </li>
                         <!-- Order dispachment -->
-                        <li class="navbar-vertical-aside-has-menu {{Request::is('admin/dispatch/*')?'active':''}}">
+                        <!-- <li class="navbar-vertical-aside-has-menu {{Request::is('admin/dispatch/*')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle"
                                href="javascript:" title="{{__('messages.dispatchManagement')}}">
                                 <i class="tio-clock nav-icon"></i>
@@ -225,7 +225,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <!-- Order dispachment End-->
                     @endif
                 <!-- End Orders -->
@@ -405,7 +405,7 @@
                     <!-- End Attributes -->
 
                     <!-- AddOn -->
-                    @if(\App\CentralLogics\Helpers::module_permission_check('addon'))
+                    <!-- @if(\App\CentralLogics\Helpers::module_permission_check('addon'))
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/addon*')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle"
                                href="javascript:" title="{{__('messages.addons')}}"
@@ -440,7 +440,7 @@
                                 </li>
                             </ul>
                         </li>
-                    @endif
+                    @endif -->
                 <!-- End AddOn -->
                     <!-- Food -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('food'))
@@ -495,7 +495,7 @@
                     @endif
                 <!-- End Food -->
                 <!-- DeliveryMan -->
-                    @if(\App\CentralLogics\Helpers::module_permission_check('deliveryman'))
+                    <!-- @if(\App\CentralLogics\Helpers::module_permission_check('deliveryman'))
                         <li class="nav-item">
                             <small class="nav-subtitle"
                                    title="{{__('messages.deliveryman')}} {{__('messages.section')}}">{{__('messages.deliveryman')}} {{__('messages.section')}}</small>
@@ -535,7 +535,7 @@
                                 </span>
                             </a>
                         </li>
-                    @endif
+                    @endif -->
                 <!-- End DeliveryMan -->
                     <!-- Marketing section -->
                     <li class="nav-item">
@@ -628,7 +628,7 @@
                     </li>
 
                     <!-- withdraw -->
-                    @if(\App\CentralLogics\Helpers::module_permission_check('withdraw_list'))
+                    <!-- @if(\App\CentralLogics\Helpers::module_permission_check('withdraw_list'))
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/vendor/withdraw*')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link"
                                href="{{route('admin.vendor.withdraw_list')}}"
@@ -639,10 +639,10 @@
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{__('messages.restaurant')}} {{__('messages.withdraws')}}</span>
                             </a>
                         </li>
-                    @endif
+                    @endif -->
                 <!-- End withdraw -->
                     <!-- account -->
-                    @if(\App\CentralLogics\Helpers::module_permission_check('account'))
+                    <!-- @if(\App\CentralLogics\Helpers::module_permission_check('account'))
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/account-transaction*')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link"
                                href="{{route('admin.account-transaction.index')}}"
@@ -653,11 +653,11 @@
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{__('messages.collect')}} {{__('messages.cash')}}</span>
                             </a>
                         </li>
-                    @endif
+                    @endif -->
                 <!-- End account -->
 
                     <!-- provide_dm_earning -->
-                    @if(\App\CentralLogics\Helpers::module_permission_check('provide_dm_earning'))
+                    <!-- @if(\App\CentralLogics\Helpers::module_permission_check('provide_dm_earning'))
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/provide-deliveryman-earnings*')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link"
                                href="{{route('admin.provide-deliveryman-earnings.index')}}"
@@ -668,7 +668,7 @@
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{__('messages.deliverymen_earning_provide')}}</span>
                             </a>
                         </li>
-                    @endif
+                    @endif -->
                 <!-- End provide_dm_earning -->
                     <!-- Custommer -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('customerList'))
@@ -687,13 +687,13 @@
 
                     <!-- Business Settings -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('settings'))
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <small class="nav-subtitle"
                                    title="{{__('messages.business')}} {{__('messages.settings')}}">{{__('messages.business')}} {{__('messages.settings')}}</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li>
 
-                        <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/business-setup')?'active':''}}">
+                        <!-- <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/business-setup')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.business-settings.business-setup')}}"
                                title="{{__('messages.business')}} {{__('messages.setup')}}"
                             >
@@ -720,8 +720,8 @@
                                 <span
                                     class="text-truncate">{{__('messages.mail')}} {{__('messages.config')}}</span>
                             </a>
-                        </li> -->
-                        <!-- <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/sms-module')?'active':''}}">
+                        </li>
+                        <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/sms-module')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.business-settings.sms-module')}}"
                                title="{{__('messages.sms')}} {{__('messages.module')}}">
                                 <span class="tio-message nav-icon"></span>
@@ -738,11 +738,11 @@
                             </a>
                         </li>
                     @endif
-                <!-- End Business Settings -->
+                <!-- End Business Settings
 
                     <!-- web & adpp Settings -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('settings'))
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <small class="nav-subtitle"
                                    title="{{__('messages.business')}} {{__('messages.settings')}}">{{__('messages.web_and_app')}} {{__('messages.settings')}}</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
@@ -813,7 +813,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="navbar-vertical-aside-has-menu {{Request::is('admin/file-manager*')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.file-manager.index')}}"
@@ -825,7 +825,7 @@
                             </a>
                         </li>
 
-                        {{--<li class="navbar-vertical-aside-has-menu {{Request::is('admin/social-login/view')?'active':''}}">
+                        <!-- {{--<li class="navbar-vertical-aside-has-menu {{Request::is('admin/social-login/view')?'active':''}}">
                             <a class="js-navbar-vertical-aside-menu-link nav-link"
                                 href="{{route('admin.social-login.view')}}">
                                 <i class="tio-twitter nav-icon"></i>
@@ -841,7 +841,7 @@
                                 <span class="tio-top-security-outlined nav-icon"></span>
                                 <span class="text-truncate">{{__('messages.reCaptcha')}}</span>
                             </a>
-                        </li>
+                        </li> -->
 
                     @endif
                 <!-- End web & adpp Settings -->

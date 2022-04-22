@@ -693,7 +693,7 @@ return [
     'food_not_found'=>'Food not found',
     'charge'=>'Charge',
     'campaign'=>'Campaign',
-    'campaigns'=>'Campaigns',
+    'campaigns'=>الحملات الاعلانية,
     'campaign_order'=>'Campaign Order',
     'campaign_status_updated'=>'Campaign status updated!',
     'campaign_deleted_successfully'=>'Campaign deleted successfully!',
