@@ -17,6 +17,42 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
     /*authentication*/
 
     Route::group(['middleware' => ['vendor']], function () {
+
+         // Offers
+        //  Route::get('/offers', [AnswersApiController::class, 'index']);
+        //  Route::prefix('/offer')->group(function(){
+        //      Route::Post('/store', [AnswersApiController::class, 'store']);
+        //      Route::put('/{id}', [AnswersApiController::class, 'update']);
+        //      Route::delete('/{id}', [AnswersApiController::class, 'destroy']);
+        //  });
+         Route::group(['prefix' => 'offer', 'as' => 'offer.', 'middleware' => ['module:offer']], function () {
+            Route::get('add-new', 'OffersController@index')->name('add-new');
+            Route::post('variant-combination', 'OffersController@variant_combination')->name('variant-combination');
+            Route::post('store', 'OffersController@store')->name('store');
+            Route::get('edit/{id}', 'OffersController@edit')->name('edit');
+            Route::post('update/{id}', 'OffersController@update')->name('update');
+            Route::get('list', 'OffersController@list')->name('list');
+            Route::delete('delete/{id}', 'OffersController@delete')->name('delete');
+            Route::get('status/{id}/{status}', 'OffersController@status')->name('status');
+            Route::post('search', 'OffersController@search')->name('search');
+            Route::get('view/{id}', 'OffersController@view')->name('view');
+            Route::get('get-categories', 'OffersController@get_categories')->name('get-categories');
+
+            //Import and export
+            Route::get('bulk-import', 'OffersController@bulk_import_index')->name('bulk-import');
+            Route::post('bulk-import', 'OffersController@bulk_import_data');
+            Route::get('bulk-export', 'OffersController@bulk_export_index')->name('bulk-export-index');
+            Route::post('bulk-export', 'OffersController@bulk_export_data')->name('bulk-export');
+        });
+
+        //Customers
+        Route::group(['prefix' => 'customer', 'as' => 'customer.', 'middleware' => ['module:customerList']], function () {
+            Route::get('list', 'CustomerController@customer_list')->name('list');
+            Route::get('view/{user_id}', 'CustomerController@view')->name('view');
+            Route::post('search', 'CustomerController@search')->name('search');
+            Route::get('status/{customer}/{status}', 'CustomerController@status')->name('status');
+        });
+
         Route::get('/', 'DashboardController@dashboard')->name('dashboard');
         Route::get('/get-restaurant-data', 'DashboardController@restaurant_data')->name('get-restaurant-data');
         Route::get('/reviews', 'ReviewController@index')->name('reviews')->middleware('module:reviews');

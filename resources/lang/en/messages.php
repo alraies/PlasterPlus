@@ -574,7 +574,7 @@ return [
     'sub'=>'Sub',
     'km'=>'KM',
     'conversation'=>'Conversation',
-    'customers'=>'Customers',
+    'customers'=>'موافقة طلبات الزبائن',
     'reply'=>'Reply',
     'rating'=>'Rating',
     'id'=>'ID',
@@ -1068,6 +1068,8 @@ return [
     'Restaurant deleted!'=>'Restaurant deleted!',
     'Food deleted!'=>'تم حذف المادة!',
     'reset'=>'Reset',
+    'Offers'=>'العروض',
+    'offers'=>'العروض',
 
 
 

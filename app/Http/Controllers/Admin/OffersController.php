@@ -1,12 +1,13 @@
 <?php
 
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Food;
+use App\Models\offer;
 use App\Models\Restaurant;
 use App\Models\Review;
 use Brian2694\Toastr\Facades\Toastr;
@@ -19,12 +20,13 @@ use Illuminate\Support\Facades\DB;
 use App\Scopes\RestaurantScope;
 use App\Models\Translation;
 
-class FoodController extends Controller
+
+class OffersController extends Controller
 {
     public function index()
     {
         $categories = Category::where(['position' => 0])->get();
-        return view('admin-views.product.index', compact('categories'));
+        return view('admin-views.Offer.index', compact('categories'));
     }
 
     public function store(Request $request)
@@ -60,7 +62,7 @@ class FoodController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
 
-        $food = new Food;
+        $food = new offer;
         $food->name = $request->name[array_search('en', $request->lang)];
 
         $category = [];
@@ -148,7 +150,7 @@ class FoodController extends Controller
         foreach ($request->lang as $index => $key) {
             if ($request->name[$index] && $key != 'en') {
                 array_push($data, array(
-                    'translationable_type' => 'App\Models\Food',
+                    'translationable_type' => 'App\Models\offer',
                     'translationable_id' => $food->id,
                     'locale' => $key,
                     'key' => 'name',
@@ -157,7 +159,7 @@ class FoodController extends Controller
             }
             if ($request->description[$index] && $key != 'en') {
                 array_push($data, array(
-                    'translationable_type' => 'App\Models\Food',
+                    'translationable_type' => 'App\Models\offer',
                     'translationable_id' => $food->id,
                     'locale' => $key,
                     'key' => 'description',
@@ -172,14 +174,14 @@ class FoodController extends Controller
 
     public function view($id)
     {
-        $product = Food::withoutGlobalScope(RestaurantScope::class)->where(['id' => $id])->first();
+        $product = offer::withoutGlobalScope(RestaurantScope::class)->where(['id' => $id])->first();
         $reviews=Review::where(['food_id'=>$id])->latest()->paginate(config('default_pagination'));
-        return view('admin-views.product.view', compact('product','reviews'));
+        return view('admin-views.Offer.view', compact('product','reviews'));
     }
 
     public function edit($id)
     {
-        $product = Food::withoutGlobalScope(RestaurantScope::class)->withoutGlobalScope('translate')->findOrFail($id);
+        $product = offer::withoutGlobalScope(RestaurantScope::class)->withoutGlobalScope('translate')->findOrFail($id);
         if(!$product)
         {
             Toastr::error(trans('messages.food').' '.trans('messages.not_found'));
@@ -187,12 +189,12 @@ class FoodController extends Controller
         }
         $product_category = json_decode($product->category_ids);
         $categories = Category::where(['parent_id' => 0])->get();
-        return view('admin-views.product.edit', compact('product', 'product_category', 'categories'));
+        return view('admin-views.Offer.edit', compact('product', 'product_category', 'categories'));
     }
 
     public function status(Request $request)
     {
-        $product = Food::withoutGlobalScope(RestaurantScope::class)->findOrFail($request->id);
+        $product = offer::withoutGlobalScope(RestaurantScope::class)->findOrFail($request->id);
         $product->status = $request->status;
         $product->save();
         Toastr::success(trans('messages.food_status_updated'));
@@ -233,7 +235,7 @@ class FoodController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
 
-        $p = Food::withoutGlobalScope(RestaurantScope::class)->find($id);
+        $p = offer::withoutGlobalScope(RestaurantScope::class)->find($id);
 
         $p->name = $request->name[array_search('en', $request->lang)];
 
@@ -322,7 +324,7 @@ class FoodController extends Controller
         foreach ($request->lang as $index => $key) {
             if ($request->name[$index] && $key != 'en') {
                 Translation::updateOrInsert(
-                    ['translationable_type' => 'App\Models\Food',
+                    ['translationable_type' => 'App\Models\offer',
                         'translationable_id' => $p->id,
                         'locale' => $key,
                         'key' => 'name'],
@@ -331,7 +333,7 @@ class FoodController extends Controller
             }
             if ($request->description[$index] && $key != 'en') {
                 Translation::updateOrInsert(
-                    ['translationable_type' => 'App\Models\Food',
+                    ['translationable_type' => 'App\Models\offer',
                         'translationable_id' => $p->id,
                         'locale' => $key,
                         'key' => 'description'],
@@ -345,7 +347,7 @@ class FoodController extends Controller
 
     public function delete(Request $request)
     {
-        $product = Food::withoutGlobalScope(RestaurantScope::class)->withoutGlobalScope('translate')->find($request->id);
+        $product = offer::withoutGlobalScope(RestaurantScope::class)->withoutGlobalScope('translate')->find($request->id);
 
         if($product->image)
         {
@@ -385,51 +387,13 @@ class FoodController extends Controller
         }
         $combinations = $result;
         return response()->json([
-            'view' => view('admin-views.product.partials._variant-combinations', compact('combinations', 'price', 'product_name'))->render(),
+            'view' => view('admin-views.offer.partials._variant-combinations', compact('combinations', 'price', 'product_name'))->render(),
         ]);
     }
 
     public function variant_price(Request $request)
     {
-        if($request->item_type=='food')
-        {
-            $product = Food::withoutGlobalScope(RestaurantScope::class)->find($request->id);
-        }
 
-        // $product = Food::withoutGlobalScope(RestaurantScope::class)->find($request->id);
-        $str = '';
-        $quantity = 0;
-        $price = 0;
-        $addon_price = 0;
-
-        foreach (json_decode($product->choice_options) as $key => $choice) {
-            if ($str != null) {
-                $str .= '-' . str_replace(' ', '', $request[$choice->name]);
-            } else {
-                $str .= str_replace(' ', '', $request[$choice->name]);
-            }
-        }
-
-        if($request['addon_id'])
-        {
-            foreach($request['addon_id'] as $id)
-            {
-                $addon_price+= $request['addon-price'.$id]*$request['addon-quantity'.$id];
-            }
-        }
-
-        if ($str != null) {
-            $count = count(json_decode($product->variations));
-            for ($i = 0; $i < $count; $i++) {
-                if (json_decode($product->variations)[$i]->type == $str) {
-                    $price = json_decode($product->variations)[$i]->price - Helpers::product_discount_calculate($product, json_decode($product->variations)[$i]->price,$product->restaurant);
-                }
-            }
-        } else {
-            $price = $product->price - Helpers::product_discount_calculate($product, $product->price,$product->restaurant);
-        }
-
-        return array('price' => Helpers::format_currency(($price * $request->quantity)+$addon_price));
     }
     public function get_categories(Request $request)
     {
@@ -449,7 +413,7 @@ class FoodController extends Controller
 
     public function get_foods(Request $request)
     {
-        $foods = Food::withoutGlobalScope(RestaurantScope::class)->with('restaurant')->whereHas('restaurant', function($query)use($request){
+        $foods = offer::withoutGlobalScope(RestaurantScope::class)->with('restaurant')->whereHas('restaurant', function($query)use($request){
             $query->where('zone_id', $request->zone_id);
         })->get();
         $res = '';
@@ -476,7 +440,7 @@ class FoodController extends Controller
         $restaurant_id = $request->query('restaurant_id', 'all');
         $category_id = $request->query('category_id', 'all');
         $type = $request->query('type', 'all');
-        $foods = Food::withoutGlobalScope(RestaurantScope::class)
+        $foods = offer::withoutGlobalScope(RestaurantScope::class)
         ->when(is_numeric($restaurant_id), function($query)use($restaurant_id){
             return $query->where('restaurant_id', $restaurant_id);
         })
@@ -489,18 +453,18 @@ class FoodController extends Controller
         ->latest()->paginate(config('default_pagination'));
         $restaurant =$restaurant_id !='all'? Restaurant::findOrFail($restaurant_id):null;
         $category =$category_id !='all'? Category::findOrFail($category_id):null;
-        return view('admin-views.product.list', compact('foods','restaurant','category', 'type'));
+        return view('admin-views.offer.list', compact('foods','restaurant','category', 'type'));
     }
 
     public function search(Request $request){
         $key = explode(' ', $request['search']);
-        $foods=Food::withoutGlobalScope(RestaurantScope::class)->where(function ($q) use ($key) {
+        $foods=offer::withoutGlobalScope(RestaurantScope::class)->where(function ($q) use ($key) {
             foreach ($key as $value) {
                 $q->where('name', 'like', "%{$value}%");
             }
         })->limit(50)->get();
         return response()->json(['count'=>count($foods),
-            'view'=>view('admin-views.product.partials._table',compact('foods'))->render()
+            'view'=>view('admin-views.offer.partials._table',compact('foods'))->render()
         ]);
     }
 
@@ -521,7 +485,7 @@ class FoodController extends Controller
 
     public function bulk_import_index()
     {
-        return view('admin-views.product.bulk-import');
+        return view('admin-views.offer.bulk-import');
     }
 
     public function bulk_import_data(Request $request)
@@ -580,7 +544,7 @@ class FoodController extends Controller
 
     public function bulk_export_index()
     {
-        return view('admin-views.product.bulk-export');
+        return view('admin-views.offer.bulk-export');
     }
 
     public function bulk_export_data(Request $request)
@@ -592,7 +556,7 @@ class FoodController extends Controller
             'from_date'=>'required_if:type,date_wise',
             'to_date'=>'required_if:type,date_wise'
         ]);
-        $products = Food::when($request['type']=='date_wise', function($query)use($request){
+        $products = offer::when($request['type']=='date_wise', function($query)use($request){
             $query->whereBetween('created_at', [$request['from_date'].' 00:00:00', $request['to_date'].' 23:59:59']);
         })
         ->when($request['type']=='id_wise', function($query)use($request){

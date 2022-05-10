@@ -14,6 +14,34 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
 
     Route::group(['middleware' => ['admin']], function () {
 
+        // Offers
+        // Route::get('/offers', [AnswersApiController::class, 'index']);
+        // Route::prefix('/offer')->group(function(){
+        //     Route::Post('/store', [AnswersApiController::class, 'store']);
+        //     Route::put('/{id}', [AnswersApiController::class, 'update']);
+        //     Route::delete('/{id}', [AnswersApiController::class, 'destroy']);
+        // });
+
+        Route::group(['prefix' => 'offer', 'as' => 'offers.', 'middleware' => ['module:offer']], function () {
+            Route::get('add-new', 'OffersController@index')->name('add-new');
+            Route::post('variant-combination', 'OffersController@variant_combination')->name('variant-combination');
+            Route::post('store', 'OffersController@store')->name('store');
+            Route::get('edit/{id}', 'OffersController@edit')->name('edit');
+            Route::post('update/{id}', 'OffersController@update')->name('update');
+            Route::get('list', 'OffersController@list')->name('list');
+            Route::delete('delete/{id}', 'OffersController@delete')->name('delete');
+            Route::get('status/{id}/{status}', 'OffersController@status')->name('status');
+            Route::post('search', 'OffersController@search')->name('search');
+            Route::get('view/{id}', 'OffersController@view')->name('view');
+            Route::get('get-categories', 'OffersController@get_categories')->name('get-categories');
+
+            //Import and export
+            Route::get('bulk-import', 'OffersController@bulk_import_index')->name('bulk-import');
+            Route::post('bulk-import', 'OffersController@bulk_import_data');
+            Route::get('bulk-export', 'OffersController@bulk_export_index')->name('bulk-export-index');
+            Route::post('bulk-export', 'OffersController@bulk_export_data')->name('bulk-export');
+        });
+
         Route::get('settings', 'SystemController@settings')->name('settings');
         Route::post('settings', 'SystemController@settings_update');
         Route::post('settings-password', 'SystemController@settings_password_update')->name('settings-password');
@@ -54,7 +82,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('search', 'EmployeeController@search')->name('search');
         });
         Route::post('food/variant-price', 'FoodController@variant_price')->name('food.variant-price');
-        Route::group(['prefix' => 'food', 'as' => 'food.', 'middleware' => ['module:food']], function () {
+        Route::group(['prefix' => 'Items', 'as' => 'food.', 'middleware' => ['module:food']], function () {
             Route::get('add-new', 'FoodController@index')->name('add-new');
             Route::post('variant-combination', 'FoodController@variant_combination')->name('variant-combination');
             Route::post('store', 'FoodController@store')->name('store');
@@ -396,4 +424,6 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     });
 
     Route::get('zone/get-coordinates/{id}', 'ZoneController@get_coordinates')->name('zone.get-coordinates');
+
+
 });

@@ -297,6 +297,60 @@
                         </ul>
                     </li>
                     <!-- End Food -->
+
+                     <!-- Offers -->
+                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/offer*')?'active':''}}">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                        >
+                            <i class="tio-premium-outlined nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{__('messages.offers')}}</span>
+                        </a>
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub"
+                            style="display: {{Request::is('vendor-panel/offer*')?'block':'none'}}">
+                            <li class="nav-item {{Request::is('vendor-panel/offer/add-new')?'active':''}}">
+                                <a class="nav-link " href="{{route('vendor.offer.add-new')}}"
+                                    title="add new offer">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span
+                                        class="text-truncate">{{__('messages.add')}} {{__('messages.new')}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item {{Request::is('vendor-panel/offer/list')?'active':''}}">
+                                <a class="nav-link " href="{{route('vendor.offer.list')}}" title="offer list">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">{{__('messages.list')}}</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- End Offers -->
+
+                    <!-- Custommer -->
+
+                        <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/customer*')?'active':''}}">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link"
+                               href="{{route('vendor.customer.list')}}" title="{{__('messages.customers')}}"
+                            >
+                                <i class="tio-poi-user nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                    {{__('messages.customers')}}
+                                </span>
+                            </a>
+                        </li>
+
+                <!-- End Custommer -->
+                <li class="navbar-vertical-aside-has-menu disable">
+                    <a class="js-navbar-vertical-aside-menu-link nav-link"
+                       href="#" title="فاتورة مردود"
+                    >
+                        <i class=" nav-icon"></i>
+                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                           فاتورة مردود
+                        </span>
+                    </a>
+                </li>
                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/category*')?'active':''}}">
                         <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle"
                             href="javascript:" title="{{__('messages.category')}}"
