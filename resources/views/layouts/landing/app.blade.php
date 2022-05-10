@@ -87,7 +87,7 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navbar-font" href="{{$landing_page_links['web_app_url']}}">{{__('messages.browse_web')}}</a>
+                            <a class="nav-link navbar-font" href="#">{{__('messages.browse_web')}}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-font" href="{{route('terms-and-conditions')}}">{{__('messages.terms_and_condition')}}</a>
