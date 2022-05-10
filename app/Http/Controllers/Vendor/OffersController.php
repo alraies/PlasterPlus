@@ -27,7 +27,7 @@ class OffersController extends Controller
         //     return back();
         // }
         $categories = Category::where(['position' => 0])->get();
-        return view('vendor-views.offer.index', compact('categories'));
+        return view('vendor-views.Offer.index', compact('categories'));
     }
 
     public function store(Request $request)
@@ -442,7 +442,7 @@ class OffersController extends Controller
         })
         ->type($type)->latest()->paginate(config('default_pagination'));
         $category =$category_id !='all'? Category::findOrFail($category_id):null;
-        return view('vendor-views.offer.list', compact('offers', 'category', 'type'));
+        return view('vendor-views.Offer.list', compact('offers', 'category', 'type'));
     }
 
     public function search(Request $request){
@@ -453,13 +453,13 @@ class OffersController extends Controller
             }
         })->limit(50)->get();
         return response()->json([
-            'view'=>view('vendor-views.offer.partials._table',compact('offers'))->render()
+            'view'=>view('vendor-views.Offer.partials._table',compact('offers'))->render()
         ]);
     }
 
     public function bulk_import_index()
     {
-        return view('vendor-views.offer.bulk-import');
+        return view('vendor-views.Offer.bulk-import');
     }
 
     public function bulk_import_data(Request $request)
@@ -522,7 +522,7 @@ class OffersController extends Controller
 
     public function bulk_export_index()
     {
-        return view('vendor-views.offer.bulk-export');
+        return view('vendor-views.Offer.bulk-export');
     }
 
     public function bulk_export_data(Request $request)
