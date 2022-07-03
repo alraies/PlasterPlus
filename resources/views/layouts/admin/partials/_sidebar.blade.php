@@ -692,8 +692,7 @@
                                    title="{{__('messages.business')}} {{__('messages.settings')}}">{{__('messages.business')}} {{__('messages.settings')}}</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li>
-
-                        <!-- <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/business-setup')?'active':''}}">
+ <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/business-setup')?'active':''}}">
                             <a class="nav-link " href="{{route('admin.business-settings.business-setup')}}"
                                title="{{__('messages.business')}} {{__('messages.setup')}}"
                             >

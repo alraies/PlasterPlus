@@ -450,7 +450,7 @@
                     <!-- End Campaign -->
 
                     <!-- Business Section-->
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <small class="nav-subtitle"
                                 title="{{__('messages.business')}} {{__('messages.section')}}">{{__('messages.business')}} {{__('messages.section')}}</small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
@@ -465,7 +465,7 @@
                                 class="text-truncate">{{__('messages.restaurant')}} {{__('messages.config')}}</span>
                         </a>
                     </li>
-                    @endif -->
+                    @endif
 
                     @if(\App\CentralLogics\Helpers::employee_module_permission_check('my_shop'))
                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor/restaurant/*')?'active':''}}">

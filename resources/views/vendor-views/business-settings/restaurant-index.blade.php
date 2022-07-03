@@ -154,14 +154,14 @@
                             </div>
                             @endif
                         </div>
-                        <!-- <div class="card">
+                         <div class="card">
                             <div class="card-header">
                                 {{__('messages.Daily time schedule')}}
                             </div>
                             <div class="card-body" id="schedule">
                                 @include('admin-views.vendor.view.partials._schedule', $restaurant)
                             </div>
-                        </div> -->
+                        </div>
                         <div class="card mt-2">
                             <div class="card-header">{{__('messages.basic')}} {{__('messages.settings')}}</div>
                             <div class="card-body">

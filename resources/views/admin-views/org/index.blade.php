@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-header"><h5>{{isset($org)?__('messages.update'):__('messages.add').' '.__('messages.new')}} {{__('messages.org')}}</h5></div>
             <div class="card-body">
-                <form action="{{route('admin.org.store')}}" method="post" >
+                <form action="{{route('admin.org.store')}}" method="post" enctype="multipart/form-data" >
                     @csrf
                     @php($language=\App\Models\BusinessSetting::where('key','language')->first())
                     @php($language = $language->value ?? null)
@@ -71,7 +71,7 @@
                         <center>
                             <img style="width: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
                                 @if(isset($org))
-                                src="{{asset('storage/org')}}/{{$org['image']}}"
+                                src="{{asset('storage/org')}}/{{$org['photo']}}"
                                 @else
                                 src="{{asset('assets/admin/img/900x400/img1.jpg')}}"
                                 @endif
@@ -205,6 +205,7 @@
 
     <script>
         function readURL(input) {
+            debugger;
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 

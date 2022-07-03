@@ -72,7 +72,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::put('update-fcm-token', 'DeliverymanController@update_fcm_token');
         });
     });
-    
+
     Route::group(['prefix' => 'vendor', 'namespace' => 'Vendor', 'middleware'=>['vendor.api']], function () {
         Route::get('notifications', 'VendorController@get_notifications');
         Route::get('profile', 'VendorController@get_profile');
@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         Route::get('get-products-list', 'VendorController@get_products');
         Route::put('update-bank-info', 'VendorController@update_bank_info');
         Route::post('request-withdraw', 'VendorController@request_withdraw');
-        
+
         // Business setup
         Route::put('update-business-setup', 'BusinessSettingsController@update_restaurant_setup');
 
@@ -186,6 +186,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
     Route::group(['prefix' => 'customer', 'middleware' => 'auth:api'], function () {
         Route::get('notifications', 'NotificationController@get_notifications');
         Route::get('info', 'CustomerController@info');
+        Route::get('subsicribe', 'CustomerController@VendorSubsicribe_store');
         Route::get('update-zone', 'CustomerController@update_zone');
         Route::post('update-profile', 'CustomerController@update_profile');
         Route::post('update-interest', 'CustomerController@update_interest');
@@ -226,7 +227,9 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
     Route::group(['prefix' => 'banners'], function () {
         Route::get('/', 'BannerController@get_banners');
     });
-
+    Route::group(['prefix' => 'orgs'], function () {
+        Route::get('/', 'OrgController@list');
+    });
     Route::group(['prefix' => 'campaigns'], function () {
         Route::get('basic', 'CampaignController@get_basic_campaigns');
         Route::get('basic-campaign-details', 'CampaignController@basic_campaign_details');

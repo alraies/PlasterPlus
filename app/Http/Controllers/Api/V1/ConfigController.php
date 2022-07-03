@@ -60,6 +60,7 @@ class ConfigController extends Controller
             // 'restaurant_location_coverage' => Branch::where(['id'=>1])->first(['longitude','latitude','coverage']),
             // 'minimum_order_value' => (float)BusinessSetting::where(['key' => 'minimum_order_value'])->first()->value,
             'base_urls' => [
+                'org_image_url' => asset('storage/org'),
                 'product_image_url' => asset('storage/product'),
                 'customer_image_url' => asset('storage/profile'),
                 'banner_image_url' => asset('storage/banner'),

@@ -24,8 +24,10 @@ class RestaurantController extends Controller
         }
 
         $type = $request->query('type', 'all');
+        $orgId = $request->query('orgId', null);
+
         $zone_id= $request->header('zoneId');
-        $restaurants = RestaurantLogic::get_restaurants($request['limit'], $request['offset'], $zone_id, $filter_data, $type);
+        $restaurants = RestaurantLogic::get_restaurants($request['limit'], $request['offset'], $zone_id, $filter_data, $type,$orgId);
         $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
 
         return response()->json($restaurants, 200);
@@ -42,9 +44,10 @@ class RestaurantController extends Controller
         }
 
         $type = $request->query('type', 'all');
+        $orgId = $request->query('orgId', null);
 
         $zone_id= $request->header('zoneId');
-        $restaurants = RestaurantLogic::get_latest_restaurants($request['limit'], $request['offset'], $zone_id, $type);
+        $restaurants = RestaurantLogic::get_latest_restaurants($request['limit'], $request['offset'], $zone_id, $type,$orgId);
         $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
 
         return response()->json($restaurants['restaurants'], 200);
@@ -60,8 +63,11 @@ class RestaurantController extends Controller
             ], 403);
         }
         $type = $request->query('type', 'all');
+
         $zone_id= $request->header('zoneId');
-        $restaurants = RestaurantLogic::get_popular_restaurants($request['limit'], $request['offset'], $zone_id, $type);
+
+        $orgId=$request->query('orgId',null);
+        $restaurants = RestaurantLogic::get_popular_restaurants($request['limit'], $request['offset'], $zone_id, $type,$orgId);
         $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
 
         return response()->json($restaurants['restaurants'], 200);
@@ -102,7 +108,7 @@ class RestaurantController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
-        
+
         $type = $request->query('type', 'all');
 
         $zone_id= $request->header('zoneId');
@@ -149,7 +155,7 @@ class RestaurantController extends Controller
             {
                 $item['customer_name'] = $item->customer->f_name.' '.$item->customer->l_name;
             }
-            
+
             unset($item['food']);
             unset($item['customer']);
             array_push($storage, $item);

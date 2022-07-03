@@ -31,6 +31,19 @@ class CustomerController extends Controller
         ->orderBy('order_count','desc')->paginate(config('default_pagination'));
         return view('admin-views.customer.list', compact('customers'));
     }
+    public function VendorSubsicribe_store(Request $request){
+
+
+        DB::table('vendor_customers')->insert([
+            'vendorId' => $request->vendorId,
+            'vendorName' => $request->vendorName,
+            'customerId' => $request->customerId,
+            'customerName' => $request->customerName,
+            'isActive'=>false,
+            'created_at' => now(),
+        ]);
+        return true;
+    }
 
     public function status(User $customer, Request $request)
     {

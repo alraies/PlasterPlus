@@ -22,7 +22,11 @@ class OrgController extends Controller
     }
 
 
-
+    function list()
+    {
+        $orgs=Org::latest()->paginate(config('default_pagination'));
+        return $orgs;
+    }
 
 
     public function get_Orgs(Request $request)
@@ -53,7 +57,7 @@ class OrgController extends Controller
         $data  = '';
         DB::table('orgs')->insert([
             'OrgName' => $request->OrgName[0],
-            'photo' => $request->photo,
+            'photo' =>Helpers::upload('org/', 'png', $request->file('photo')),
             'created_at' => now(),
         ]);
 

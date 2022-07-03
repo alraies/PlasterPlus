@@ -164,6 +164,8 @@ class VendorController extends Controller
         $restaurant->longitude = $request->longitude;
         $restaurant->zone_id = $request->zone_id;
         $restaurant->orgId = $request->orgId;
+        $restaurant->IsPrivate=($request->IsPrivate == 'on'?true:false);
+
 
         $restaurant->tax = $request->tax;
         $restaurant->delivery_time = $request->minimum_delivery_time .'-'. $request->maximum_delivery_time;

@@ -42,7 +42,7 @@ class CustomerAuthController extends Controller
                 {
                     $user->is_phone_verified = 1;
                     $user->save();
-                    
+
                     return response()->json([
                         'message' => trans('messages.phone_number_varified_successfully'),
                         'otp' => 'inactive'
@@ -170,7 +170,7 @@ class CustomerAuthController extends Controller
 
         $token = $user->createToken('RestaurantCustomerAuth')->accessToken;
 
-        if($customer_verification && env('APP_MODE') !='demo')
+        if($customer_verification)
         {
             $otp = rand(1000, 9999);
             DB::table('phone_verifications')->updateOrInsert(['phone' => $request['phone']],
@@ -239,7 +239,7 @@ class CustomerAuthController extends Controller
                     ], 405);
                 }
             }
-            
+
             return response()->json(['token' => $token, 'is_phone_verified'=>auth()->user()->is_phone_verified], 200);
         } else {
             $errors = [];

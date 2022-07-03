@@ -8,13 +8,13 @@ use App\Models\Review;
 
 class RestaurantLogic
 {
-    public static function get_restaurants($limit = 10, $offset = 1, $zone_id, $filter, $type)
+    public static function get_restaurants($limit = 10, $offset = 1, $zone_id, $filter, $type,$orgId)
     {
         $paginator = Restaurant::
         withOpen()
         ->with(['discount'=>function($q){
             return $q->validate();
-        }])->where('zone_id', $zone_id)
+        }])->where('orgId',$orgId)->where('zone_id', $zone_id)
         ->when($filter=='delivery', function($q){
             return $q->delivery();
         })
@@ -34,12 +34,12 @@ class RestaurantLogic
         ];
     }
 
-    public static function get_latest_restaurants($limit = 10, $offset = 1, $zone_id, $type)
+    public static function get_latest_restaurants($limit = 10, $offset = 1, $zone_id, $type,$orgId)
     {
         $paginator = Restaurant::withOpen()
         ->with(['discount'=>function($q){
             return $q->validate();
-        }])->where('zone_id', $zone_id)
+        }])->where('orgId',$orgId)->where('zone_id', $zone_id)
         ->Active()
         ->type($type)
         ->latest()
@@ -55,12 +55,12 @@ class RestaurantLogic
         ];
     }
 
-    public static function get_popular_restaurants($limit = 10, $offset = 1, $zone_id, $type)
+    public static function get_popular_restaurants($limit = 10, $offset = 1, $zone_id, $type,$orgId)
     {
         $paginator = Restaurant::withOpen()
         ->with(['discount'=>function($q){
             return $q->validate();
-        }])->where('zone_id', $zone_id)
+        }])->where('orgId',$orgId)->where('zone_id', $zone_id)
         ->Active()
         ->type($type)
         ->withCount('orders')
@@ -101,7 +101,7 @@ class RestaurantLogic
             $restaurant_ratings[3] = $ratings[2];
             $restaurant_ratings[4] = $ratings[1];
             $restaurant_ratings[5] = $ratings[0];
-            $restaurant_ratings[$product_rating] = $ratings[5-$product_rating] + 1; 
+            $restaurant_ratings[$product_rating] = $ratings[5-$product_rating] + 1;
         }
         else
         {
@@ -156,7 +156,7 @@ class RestaurantLogic
         $monthly_earning = OrderTransaction::whereMonth('created_at', date('m'))->NotRefunded()->where('vendor_id', $vendor_id)->sum('restaurant_amount');
         $weekly_earning = OrderTransaction::whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->NotRefunded()->where('vendor_id', $vendor_id)->sum('restaurant_amount');
         $daily_earning = OrderTransaction::whereDate('created_at', now())->NotRefunded()->where('vendor_id', $vendor_id)->sum('restaurant_amount');
-        
+
         return['monthely_earning'=>(float)$monthly_earning, 'weekly_earning'=>(float)$weekly_earning, 'daily_earning'=>(float)$daily_earning];
     }
 

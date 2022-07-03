@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('title','Update restaurant info')
+@section('title','Update Vendor info')
 
 @push('css_or_js')
 <style>
@@ -52,6 +52,16 @@
                                 <label class="input-label" for="address">{{__('messages.vat/tax')}} (%)</label>
                                 <input type="number" name="tax" class="form-control" placeholder="{{__('messages.vat/tax')}}" min="0" step=".01" required value="{{$restaurant->tax}}">
                             </div>
+                            <div class="form-group">
+                                <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="IsPrivate">
+                                <span class="pr-2">{{__('messages.IsPrivate')}}</span>
+                                    <input type="checkbox" class="toggle-switch-input"  name="IsPrivate" id="IsPrivate" {{$restaurant->IsPrivate?'checked':''}}>
+                                    <span class="toggle-switch-label text">
+                                        <span class="toggle-switch-indicator"></span>
+                                    </span>
+                                </label>
+                            </div>
+
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="input-label" for="minimum_delivery_time">{{__('messages.minimum_delivery_time')}}</label>
