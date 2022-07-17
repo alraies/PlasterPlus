@@ -186,7 +186,9 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
     Route::group(['prefix' => 'customer', 'middleware' => 'auth:api'], function () {
         Route::get('notifications', 'NotificationController@get_notifications');
         Route::get('info', 'CustomerController@info');
-        Route::get('subsicribe', 'CustomerController@VendorSubsicribe_store');
+        Route::get('checksubsicribe', 'CustomerController@checksubsicribe');
+
+        Route::post('subsicribe', 'CustomerController@VendorSubsicribe_store');
         Route::get('update-zone', 'CustomerController@update_zone');
         Route::post('update-profile', 'CustomerController@update_profile');
         Route::post('update-interest', 'CustomerController@update_interest');

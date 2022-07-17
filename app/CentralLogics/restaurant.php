@@ -5,6 +5,7 @@ namespace App\CentralLogics;
 use App\Models\Restaurant;
 use App\Models\OrderTransaction;
 use App\Models\Review;
+use App\Models\VendorCustomers;
 
 class RestaurantLogic
 {
@@ -57,6 +58,7 @@ class RestaurantLogic
 
     public static function get_popular_restaurants($limit = 10, $offset = 1, $zone_id, $type,$orgId)
     {
+
         $paginator = Restaurant::withOpen()
         ->with(['discount'=>function($q){
             return $q->validate();

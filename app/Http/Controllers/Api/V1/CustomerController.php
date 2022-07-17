@@ -65,7 +65,22 @@ class CustomerController extends Controller
         DB::table('customer_addresses')->insert($address);
         return response()->json(['message' => trans('messages.successfully_added'),'zone_id'=>$zone->id], 200);
     }
+    public function VendorSubsicribe_store(Request $request){
 
+
+        DB::table('vendor_customers')->insert([
+            'vendorId' => $request->vendorId,
+            'vendorName' => $request->vendorName,
+            'customerId' => $request->customerId,
+            'customerName' => $request->customerName,
+            'isActive'=>false,
+            'created_at' => now(),
+        ]);
+        return true;
+    }
+    public function checksubsicribe(Request $request){
+
+    }
     public function update_address(Request $request,$id)
     {
         $validator = Validator::make($request->all(), [
@@ -250,7 +265,7 @@ class CustomerController extends Controller
         $interest = $request->user()->interest;
         $interest = isset($interest) ? json_decode($interest):null;
         // return response()->json($interest, 200);
-        
+
         $products =  Food::active()->whereHas('restaurant', function($q)use($zone_id){
             $q->where('zone_id', $zone_id);
         })

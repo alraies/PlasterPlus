@@ -241,50 +241,35 @@
                         <th class="">
                             {{__('messages.#')}}
                         </th>
-                        <th class="table-column-pl-0">{{__('messages.name')}}</th>
-                        <th>{{__('messages.email')}}</th>
-                        <th>{{__('messages.phone')}}</th>
-                        <th>{{__('messages.total')}} {{__('messages.order')}}</th>
-                        <th>{{__('messages.active')}}/{{__('messages.inactive')}}</th>
-                        <th>{{__('messages.actions')}}</th>
+                        <th class="table-column-pl-0">{{__('messages.customerName')}}</th>
+                        <th>{{__('messages.vendorName')}}</th>
+                        <th>{{__('messages.isActive')}}</th>
+
                     </tr>
                     </thead>
 
                     <tbody id="set-rows">
-                    @foreach($customers as $key=>$customer)
+                    @foreach($customers as $customer)
                         <tr class="">
-                            <td class="">
-                                {{$key+$customers->firstItem()}}
-                            </td>
-                            <td class="table-column-pl-0">
-                                <a href="{{route('vendor.customer.view',[$customer['id']])}}">
-                                    {{$customer['f_name']." ".$customer['l_name']}}
-                                </a>
+                            <td>
+                                {{$customer->id}}
                             </td>
                             <td>
-                                {{$customer['email']}}
+                                {{$customer->customerName}}
                             </td>
                             <td>
-                               {{$customer['phone']}}
+                               {{$customer->vendorName}}
                             </td>
-                            <td>
-                                <label class="badge badge-soft-info">
-                                    {{$customer->order_count}}
-                                </label>
-                            </td>
+
                             <td>
                                 <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{$customer->id}}">
-                                    <input type="checkbox" onclick="status_change_alert('{{route('vendor.customer.status',[$customer->id,$customer->status?0:1])}}', '{{$customer->status?__('messages.you_want_to_block_this_customer'):__('messages.you_want_to_unblock_this_customer')}}', event)" class="toggle-switch-input" id="stocksCheckbox{{$customer->id}}" {{$customer->status?'checked':''}}>
+                                    <input type="checkbox" onclick="status_change_alert('{{route('vendor.customer.accept',[$customer->id,$customer->isActive?0:1])}}', '{{$customer->isActive?__('messages.you_want_to_block_this_customer'):__('messages.you_want_to_accept_this_customer')}}', event)" class="toggle-switch-input" id="stocksCheckbox{{$customer->id}}" {{$customer->isActive?'checked':''}}>
                                     <span class="toggle-switch-label">
                                         <span class="toggle-switch-indicator"></span>
                                     </span>
                                 </label>
                             </td>
-                            <td>
-                                <a class="btn btn-sm btn-white"
-                                    href="{{route('vendor.customer.view',[$customer['id']])}}" title="{{__('messages.view')}} {{__('messages.customer')}}"><i class="tio-visible text-primary"></i>
-                                </a>
-                            </td>
+
                         </tr>
                     @endforeach
                     </tbody>
@@ -299,7 +284,7 @@
                     <div class="col-sm-auto">
                         <div class="d-flex justify-content-center justify-content-sm-end">
                             <!-- Pagination -->
-                            {!! $customers->links() !!}
+                            {{-- {!! $customers->links() !!} --}}
                             {{--<nav id="datatablePagination" aria-label="Activity pagination"></nav>--}}
                         </div>
                     </div>

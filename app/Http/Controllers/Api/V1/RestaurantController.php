@@ -9,6 +9,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Review;
+use App\Models\VendorCustomers;
 use Illuminate\Support\Facades\DB;
 
 class RestaurantController extends Controller
@@ -67,10 +68,22 @@ class RestaurantController extends Controller
         $zone_id= $request->header('zoneId');
 
         $orgId=$request->query('orgId',null);
-        $restaurants = RestaurantLogic::get_popular_restaurants($request['limit'], $request['offset'], $zone_id, $type,$orgId);
-        $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
+        $userId=$request->query('userId',null);
 
-        return response()->json($restaurants['restaurants'], 200);
+        $restaurants = RestaurantLogic::get_popular_restaurants($request['limit'], $request['offset'], $zone_id, $type,$orgId,$userId);
+        $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
+       $data=[];
+foreach ($restaurants['restaurants'] as $res){
+   $auth= VendorCustomers::where('customerId',$userId)->where('vendorId',$res->id)->first();
+   if($auth!=null){
+    if($auth->isActive==1){
+$res->IsPrivate=0;
+    }
+   }
+ array_push($data,$res);
+
+}
+        return response()->json($data, 200);
     }
 
     public function get_details($id)

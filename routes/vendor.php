@@ -51,6 +51,8 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::get('view/{user_id}', 'CustomerController@view')->name('view');
             Route::post('search', 'CustomerController@search')->name('search');
             Route::get('status/{customer}/{status}', 'CustomerController@status')->name('status');
+            Route::get('accept/{customer}/{accept}', 'CustomerController@accept')->name('accept');
+
         });
 
         Route::get('/', 'DashboardController@dashboard')->name('dashboard');
